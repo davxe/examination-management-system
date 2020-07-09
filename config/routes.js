@@ -9,6 +9,7 @@ const courseController = require('../app/controller/courseController')
 const examController = require('../app/controller/examController')
 const teacherController = require('../app/controller/teacherController')
 const subjectController = require('../app/controller/subjectController')
+const studentController = require('../app/controller/studentController')
 
 //user authentication
 router.post('/users/register',usersController.register)
@@ -44,4 +45,10 @@ router.post('/subjects',authenticateUsers,subjectController.create)
 router.get('/subjects/:id',authenticateUsers,subjectController.show)
 router.put('/subjects/:id',authenticateUsers,subjectController.update)
 router.delete('/subjects/:id',authenticateUsers,subjectController.destroy)
+//student
+router.get('/students',authenticateUsers,studentController.list)
+router.post('/students',authenticateUsers,studentController.create)
+router.get('/students/:id',authenticateUsers,studentController.show)
+router.put('/students/:id',authenticateUsers,studentController.update)
+router.delete('/students/:id',authenticateUsers,studentController.destroy)
 module.exports=router

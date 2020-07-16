@@ -27,7 +27,9 @@ usersController.login=(req,res)=>{
         .then((user)=>{
             if(!user)
             {
-                res.json({"errors":"invalid email id or password"})
+                res.json({
+                    error:"invalid email id or password"
+                })
             }
             bcryptjs.compare(body.password,user.password)
                 .then((match)=>{
@@ -43,7 +45,7 @@ usersController.login=(req,res)=>{
                     }
                     else
                     {
-                        res.json({"error":"invalid email or password"})
+                        res.json({error:"invalid email or password"})
                     }
                 })
         })

@@ -18,6 +18,11 @@ const departmentSchema=new Schema({
         required:true,
         minlength:[5,'minimum 5 length is required'],
     },
+    course:{
+        type:Schema.Types.ObjectId,
+        ref:'Course',
+        required:true
+    },
     user:{
         type:Schema.Types.ObjectId,
         ref:'User',

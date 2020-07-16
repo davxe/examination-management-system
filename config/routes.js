@@ -51,4 +51,5 @@ router.post('/students',authenticateUsers,studentController.create)
 router.get('/students/:id',authenticateUsers,studentController.show)
 router.put('/students/:id',authenticateUsers,studentController.update)
 router.delete('/students/:id',authenticateUsers,studentController.destroy)
+
 module.exports=router

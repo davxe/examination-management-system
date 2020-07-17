@@ -5,7 +5,7 @@ const courseSchema=new Schema({
     course_name:{
         type:String,
         required:true,
-        minlength:[5,'minimum 5 length is required']
+        minlength:[3,'minimum 5 length is required']
     },
     description:{
         type:String,

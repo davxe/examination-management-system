@@ -1,11 +1,21 @@
 import React from 'react'
-import {BrowserRouter,Link,Route,Switch} from 'react-router-dom'
+import {BrowserRouter,Route,Switch} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 import Home from './component/static/Home'
 import Login from './component/auth/Login'
 import Register from './component/auth/Register'
 import { startUserLogout } from './actions/userAction'
-import {connect} from 'react-redux'
+
+import CourseList from './component/course/CourseList'
+import AddCourse from './component/course/AddCourse'
+import CourseShow from './component/course/CourseShow'
+import EditCourse from './component/course/EditCourse'
+
+import DepartmentList from './component/department/DepartmentList'
+import AddDepartment from './component/department/AddDepartment'
+import DepartmentShow from './component/department/DepartmentShow'
+import EditDepartment from './component/department/EditDepartment'
 
 import {Navbar, Nav} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css';
@@ -26,8 +36,8 @@ function App(props)
                                 <Navbar.Brand href={"/"} style={{color:'white'}}>Examination Management</Navbar.Brand>
                                 <Nav className="ml-auto" >
                                     <Nav.Link href={"/"} style={{color:'white'}}>Home</Nav.Link>
-                                    <Nav.Link href={"/customer"} style={{color:'white'}}>Admin</Nav.Link>
-                                    <Nav.Link href={"/department"} style={{color:'white'}}>Department</Nav.Link>
+                                    <Nav.Link href={"/admins"} style={{color:'white'}}>Admin</Nav.Link>
+                                    <Nav.Link href={"/departments"} style={{color:'white'}}>Department</Nav.Link>
                                     <Nav.Link href={"/courses"} style={{color:'white'}}>Course</Nav.Link>
                                     <Nav.Link href={"/subjects"} style={{color:'white'}}>Subject</Nav.Link>
                                     <Nav.Link href={"/teachers"} style={{color:'white'}}>Teacher</Nav.Link>
@@ -58,6 +68,16 @@ function App(props)
                     <Route path='/' component={Home} exact={true}/>
                     <Route path='/users/login' component={Login}/>
                     <Route path='/users/register' component={Register}/>
+                    
+                    <Route path="/courses" component={CourseList} exact={true} />
+                    <Route path="/courses/add" component={AddCourse} />
+                    <Route path="/courses/:id" component={CourseShow} exact={true} />
+                    <Route path="/courses/editcourse/:id" component={EditCourse} />
+
+                    <Route path="/departments" component={DepartmentList} exact={true} />
+                    <Route path="/departments/add" component={AddDepartment} />
+                    <Route path="/departments/:id" component={DepartmentShow} exact={true} />
+                    <Route path="/departments/editdepartment/:id" component={EditDepartment} />
                 </Switch>
             </div>
         </BrowserRouter>

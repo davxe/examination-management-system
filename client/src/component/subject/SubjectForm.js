@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Container, Form} from 'react-bootstrap'
 
 class SubjectForm extends React.Component{
 
@@ -9,7 +10,7 @@ class SubjectForm extends React.Component{
             course:props.subject ? props.subject.course:'',
             department:props.subject ? props.subject.department:'',
             subject_name: props.subject ? props.subject.subject_name : '',
-            semester: props.subject ? props.department.incharge_name:'',
+            semester: props.subject ? props.department.semester:'',
             description: props.subject ? props.subject.description : '',
         }
     }
@@ -32,53 +33,55 @@ class SubjectForm extends React.Component{
     }
     render(){
         return(
-            <div>
-                <h1>Add Subject</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="cname">Course Name:-</label>                   
-                    <select name='course' id='cname' value={this.state.course} onChange={this.handleChange}>
-                        <option value=''>----select----</option>
-                        {
-                            this.props.course.map((course)=>{
-                                return <option value={course._id} key={course._id}>{course.course_name}</option>
-                            })
-                        }
-                    </select><br/><br/>
-                    <label htmlFor="dname">Department Name:-</label>                   
-                    <select name='department' id='dname' value={this.state.department} onChange={this.handleChange}>
-                        <option value=''>----select----</option>
-                        {
-                            this.props.department.map((department)=>{
-                                return <option value={department._id} key={department._id}>{department.department_name}</option>
-                            })
-                        }
-                    </select><br/><br/>
-                    <label htmlFor="name">Subject Name:-</label>
-                    <input 
-                        type="text"
-                        id="name"
-                        name="subject_name"
-                        value={this.state.subject_name}
-                        onChange={this.handleChange}
-                    /> <br/><br/>
-                    <label htmlFor="semester">Semester:-</label>
-                    <input 
-                        type="text"
-                        id="semester"
-                        name="semester"
-                        value={this.state.semester}
-                        onChange={this.handleChange}
-                    /> <br/><br/>
-                    <label htmlFor="description">description:-</label>
-                    <textarea
-                        type="text"
-                        id="description"
-                        name="description"
-                        value={this.state.description}
-                        onChange={this.handleChange}
-                    /> <br/><br/>
-                    <input type="submit" value="Submit" />
-                </form>
+            <div class="fluid-container" style={{height:"700px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#add8e6,#808080,#90EE90)"}}>
+                <Container >
+                    <h1 className='mt-5'>Add Subject</h1>
+                    <Form onSubmit={this.handleSubmit}>
+                        <Form.Label htmlFor="cname">Course Name:-</Form.Label>                   
+                        <Form.Control as='select' name='course' id='cname' value={this.state.course} onChange={this.handleChange}>
+                            <option value=''>----select----</option>
+                            {
+                                this.props.course.map((course)=>{
+                                    return <option value={course._id} key={course._id}>{course.course_name}</option>
+                                })
+                            }
+                        </Form.Control><br/><br/>
+                        <Form.Label htmlFor="dname">Department Name:-</Form.Label>                   
+                        <Form.Control as='select' name='department' id='dname' value={this.state.department} onChange={this.handleChange}>
+                            <option value=''>----select----</option>
+                            {
+                                this.props.department.map((department)=>{
+                                    return <option value={department._id} key={department._id}>{department.department_name}</option>
+                                })
+                            }
+                        </Form.Control><br/><br/>
+                        <Form.Label htmlFor="name">Subject Name:-</Form.Label>
+                        <Form.Control 
+                            type="text"
+                            id="name"
+                            name="subject_name"
+                            value={this.state.subject_name}
+                            onChange={this.handleChange}
+                        /> <br/><br/>
+                        <Form.Label htmlFor="semester">Semester:-</Form.Label>
+                        <Form.Control 
+                            type="text"
+                            id="semester"
+                            name="semester"
+                            value={this.state.semester}
+                            onChange={this.handleChange}
+                        /> <br/><br/>
+                        <Form.Label htmlFor="description">description:-</Form.Label>
+                        <Form.Control as='textarea' rows="3"
+                            type="text"
+                            id="description"
+                            name="description"
+                            value={this.state.description}
+                            onChange={this.handleChange}
+                        /> <br/><br/>
+                        <input type="submit" value="Submit" className='btn btn-secondary'/>
+                    </Form>
+                </Container>
             </div>
         )
     }

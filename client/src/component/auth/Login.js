@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { startLoginUser } from '../../actions/userAction'
-
+import img from './img.png'
 class Login extends React.Component
 {
     constructor(props)
@@ -30,29 +30,29 @@ class Login extends React.Component
     render()
     {
         return(
-            <div>
-                <h2 style={{color:'green',textAlign:'center'}}>Login</h2>
-                <form style={{color:'green',textAlign:'center'}} onSubmit={this.handleSubmit}>
-                    <input 
-                        type='text' 
-                        value={this.state.email} 
-                        onChange={this.handleChange}
-                        name='email'
-                        placeholder='Email'
-                    /><br/><br/>
-                    <input
-                        type="password"
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                        name='password'
-                        placeholder='Password' 
-                    /><br/><br/>
-                    <input 
-                        type='submit'
-                        value='Login'
-                        style={{textAlign:'center',color:"white",backgroundColor:'blue'}}
-                    />
-                </form>
+            <div class="fluid-container" style={{height:"600px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#add8e6,#808080,#90EE90)"}}>
+                <div class="row pt-5" style={{height: "400px", width:"100%"}}>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4" style={{backgroundColor: "red",backgroundImage:`linear-gradient(#add8e6,#808080,#90EE90)`}}>
+                        <div class="container">
+                            <img src={img} alt="img" height="200px" width="200px" class="mx-auto d-block rounded-circle"></img>
+                            <h1 class="text-center pt-1">LOGIN</h1><br/>
+                            <form onSubmit={this.handleSubmit}>
+                                <div class="container form-group">
+                                    <input type="text" name="email" placeholder="Enter Email" class="form-control" onChange={this.handleChange} value={this.state.email} />
+                                </div>
+                                <div class="container form-group">
+                                    <input type="password" name="password" placeholder="Enter Password" class="form-control" value={this.state.password} onChange={this.handleChange}/>
+                                </div>
+                                <div class="container form-group">
+                                    <input type="checkbox"/> Remember me <br/><br/>
+                                    <input type="submit" value="Login" class="form-control btn btn-primary"/>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
             </div>
         )
     }

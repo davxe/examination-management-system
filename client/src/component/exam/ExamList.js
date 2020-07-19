@@ -1,13 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import moment from 'moment'
 
-import { startRemoveSubject } from '../../actions/subjectAction'
+import { startRemoveExam} from '../../actions/examAction'
 
 import swal from 'sweetalert'
 import { Container, Table, Button } from 'react-bootstrap' 
-function SubjectList(props){
-    //console.log(props.subject)
+
+function ExamList(props){
+    //console.log(props.department)
 
     const handleRemove = (id) => {
         swal({
@@ -21,30 +23,21 @@ function SubjectList(props){
                 swal("Successfully Deleted", {	
                     icon: "success",
                 });
-                props.dispatch(startRemoveSubject(id)) 
+                props.dispatch(startRemoveExam(id)) 
             } 
         })
-        
-    }
-    const findCourse=(id)=>{
-        return props.course.find(course=>course._id===id)
-    }
-    const findDepartment=(id)=>{
-        return props.department.find(department=>department._id===id)
     }
     return(
         <div class="fluid-container" style={{height:"600px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#add8e6,#808080,#90EE90)"}}>
             <Container>
-                <h1 className='mt-5'>Subject - {props.subject.length} </h1>
+                <h1 className='mt-5'>Exam - {props.exam.length} </h1>
                 <Table striped bordered hover>
                     <thead className='thead-dark'>
                         <tr>
                             <th>Id</th>
-                            <th>CourseName</th>
-                            <th>DepartmentName</th>
-                            <th>SubjectName</th>
-                            <th>Semester</th>
-                            <th>Description</th>
+                            <th>ExamName</th>
+                            <th>ExamYear</th>
+                            <th>ExamType</th>
                             <th>Show</th>
                             <th>Update</th>
                             <th>Remove</th>
@@ -52,17 +45,15 @@ function SubjectList(props){
                     </thead>
                     <tbody>
                         {
-                            props.subject.map((ele,i) => {
+                            props.exam.map((ele,i) => {
                                 return (
-                                    <tr key={i}>
+                                    <tr key={ele._id}>
                                         <td> {i+1} </td>
-                                        <td> {findCourse(ele.course)?.course_name} </td>
-                                        <td> {findDepartment(ele.department)?.department_name} </td>
-                                        <td> {ele.subject_name} </td>
-                                        <td> {ele.semester} </td>
-                                        <td> {ele.description} </td>
-                                        <td><Link to={`/subjects/${ele._id}`}><Button className='btn btn-info'>show</Button></Link></td>
-                                        <td><Link to={`/subjects/editsubject/${ele._id}`}><Button className='btn btn-warning'>update</Button></Link></td>
+                                        <td> {ele.exam_name} </td>
+                                        <td> {moment(ele.exam_year).format('YYYY')} </td>
+                                        <td> {ele.exam_type} </td>
+                                        <td><Link to={`/exams/${ele._id}`}><Button className='btn btn-info'>show</Button></Link></td>
+                                        <td><Link to={`/exams/editexam/${ele._id}`}><Button className='btn btn-warning'>update</Button></Link></td>
                                         <td> <Button onClick={ () => handleRemove(ele._id)} className='btn btn-danger'>remove</Button> </td>
                                     </tr>
                                 )
@@ -70,7 +61,7 @@ function SubjectList(props){
                         }
                     </tbody>
                 </Table>
-                <Link to="/subjects/add">Add Subject</Link>
+                <Link to="/exams/add">Add Exam</Link>
             </Container>
         </div>
     )
@@ -78,9 +69,7 @@ function SubjectList(props){
 
 const mapStateToProps = (state) => {
     return {
-        course: state.course,
-        department:state.department,
-        subject:state.subject
+        exam:state.exam
     }
 }
-export default connect(mapStateToProps)(SubjectList)
+export default connect(mapStateToProps)(ExamList)

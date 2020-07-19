@@ -22,6 +22,11 @@ import AddSubject from './component/subject/AddSubject'
 import SubjectShow from './component/subject/SubjectShow'
 import EditSubject from './component/subject/EditSubject'
 
+import ExamList from './component/exam/ExamList'
+import AddExam from './component/exam/AddExam'
+import ExamShow from './component/exam/ExamShow'
+import EditExam from './component/exam/EditExam'
+
 import {Navbar, Nav} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -88,6 +93,11 @@ function App(props)
                     <Route path="/subjects/add" component={AddSubject} />
                     <Route path="/subjects/:id" component={SubjectShow} exact={true} />
                     <Route path="/subjects/editsubject/:id" component={EditSubject} />
+
+                    <Route path="/exams" component={ExamList} exact={true} />
+                    <Route path="/exams/add" component={AddExam} />
+                    <Route path="/exams/:id" component={ExamShow} exact={true} />
+                    <Route path="/exams/editexam/:id" component={EditExam} />
                 </Switch>
             </div>
         </BrowserRouter>

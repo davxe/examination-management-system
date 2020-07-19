@@ -4,21 +4,33 @@ import { connect } from 'react-redux'
 
 import { startRemoveCourse} from '../../actions/courseAction'
 
-
+import swal from 'sweetalert'
+import { Container, Table, Button } from 'react-bootstrap' 
 function CourseList(props){
     //console.log(props.course)
 
     const handleRemove = (id) => {
-        const confirmRemove = window.confirm('are you sure')
-        if(confirmRemove){
-        props.dispatch(startRemoveCourse(id))
-        }
+        swal({
+            title: "Are you sure ?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                swal("Successfully Deleted", {	
+                    icon: "success",
+                });
+                props.dispatch(startRemoveCourse(id)) 
+            } 
+        })
     }
     return(
-        <div>
-            <h1>Courses - {props.course.length} </h1>
-            <table border="1" cellSpacing="0">
-                <thead>
+        <div class="fluid-container" style={{height:"600px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#add8e6,#808080,#90EE90)"}}>
+            <Container>
+            <h1 className='mt-5'>Courses - {props.course.length} </h1>
+            <Table striped bordered hover>
+                <thead className='thead-dark'>
                     <tr>
                         <th>Id</th>
                         <th>CourseName</th>
@@ -36,16 +48,17 @@ function CourseList(props){
                                     <td> {i+1} </td>
                                     <td> {ele.course_name} </td>
                                     <td> {ele.description} </td>
-                                    <td><Link to={`/courses/${ele._id}`}><button>show</button></Link></td>
-                                    <td><Link to={`/courses/editcourse/${ele._id}`}><button>update</button></Link></td>
-                                    <td> <button onClick={ () => handleRemove(ele._id)}>remove</button> </td>
+                                    <td><Link to={`/courses/${ele._id}`}><Button className='btn btn-info'>show</Button></Link></td>
+                                    <td><Link to={`/courses/editcourse/${ele._id}`}><Button className='btn btn-warning'>update</Button></Link></td>
+                                    <td> <Button onClick={ () => handleRemove(ele._id)} className='btn btn-danger'>remove</Button> </td>
                                 </tr>
                             )
                         })
                     }
                 </tbody>
-            </table>
+            </Table>
             <Link to="/courses/add">Add Course</Link>
+        </Container>
         </div>
     )
 }

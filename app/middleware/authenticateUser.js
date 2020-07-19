@@ -1,24 +1,22 @@
-const jwt=require('jsonwebtoken')
-const User=require('../models/user')
-const authenticateUsers=(req,res,next)=>{
-    if(req.header('x-auth')){
-        const token=req.header('x-auth')
-        let tokenData
-        try{
-            tokenData=jwt.verify(token,'Prince@123')
-            User.findById(tokenData.id)
-                .then((user)=>{
-                    req.user=user
-                    next()
-                })
-                .catch((err)=>{
-                    res.json(err)
-                })
-        }catch(error){
-            res.json(error.message)
-        }
-    }else{
-        res.json({errors:"token not provided"})
-    }
+const User = require('../models/user')
+
+const aunthenticateUser = (req,res,next) => {
+    const token = req.header('x-auth')
+    User.findByToken(token)
+        .then(user=>{
+            if(user){
+                req.user = user
+                req.token = token
+                next()
+            } else {
+                res.status('401').json({notice: 'token not available'})
+            }
+        })
+        .catch(err=>{
+            res.status('401').json(err)
+        })
 }
-module.exports={authenticateUsers}
+
+module.exports = {
+    aunthenticateUser
+}

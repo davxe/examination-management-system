@@ -50,7 +50,7 @@ class Register extends React.Component
                                     <input type="password" name="password" placeholder="Enter Password" class="form-control" value={this.state.password} onChange={this.handleChange}/>
                                 </div>
                                 <div class="container form-group">
-                                    <input type="submit" value="Login" class="form-control btn btn-primary"/>
+                                    <input type="submit" value="Register" class="form-control btn btn-primary"/>
                                 </div>
                             </form>
                         </div>

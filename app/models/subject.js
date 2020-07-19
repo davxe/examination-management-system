@@ -11,6 +11,11 @@ const subjectSchema=new Schema({
         ref:'Course',
         required:true
     },
+    department:{
+        type:Schema.Types.ObjectId,
+        ref:'Department',
+        required:true
+    },
     semester:{
         type:String,
         required:true,

@@ -1,26 +1,28 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-class DepartmentForm extends React.Component{
+class SubjectForm extends React.Component{
 
     constructor(props){
         super(props)
         this.state = {
-            department_name: props.department ? props.department.department_name : '',
-            incharge_name: props.department ? props.department.incharge_name:'',
-            course:props.department ? props.department.course:'',
-            description: props.department ? props.department.description : '',
+            course:props.subject ? props.subject.course:'',
+            department:props.subject ? props.subject.department:'',
+            subject_name: props.subject ? props.subject.subject_name : '',
+            semester: props.subject ? props.department.incharge_name:'',
+            description: props.subject ? props.subject.description : '',
         }
     }
     handleSubmit = (e) => {
         e.preventDefault()
         const formData = {
-            department_name: this.state.department_name,
-            incharge_name: this.state.incharge_name,
             course:this.state.course,
+            department: this.state.department,
+            subject_name:this.state.subject_name,
+            semester:this.state.semester,
             description: this.state.description,
         }
-        this.props.department && (formData.id = this.props.department._id)
+        this.props.subject && (formData.id = this.props.subject._id)
         this.props.handleEditSubmit(formData)
     }
     handleChange = (e) => {
@@ -31,7 +33,7 @@ class DepartmentForm extends React.Component{
     render(){
         return(
             <div>
-                <h1>Add Department</h1>
+                <h1>Add Subject</h1>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="cname">Course Name:-</label>                   
                     <select name='course' id='cname' value={this.state.course} onChange={this.handleChange}>
@@ -42,20 +44,29 @@ class DepartmentForm extends React.Component{
                             })
                         }
                     </select><br/><br/>
-                    <label htmlFor="name">Department Name:-</label>
+                    <label htmlFor="dname">Department Name:-</label>                   
+                    <select name='department' id='dname' value={this.state.department} onChange={this.handleChange}>
+                        <option value=''>----select----</option>
+                        {
+                            this.props.department.map((department)=>{
+                                return <option value={department._id} key={department._id}>{department.department_name}</option>
+                            })
+                        }
+                    </select><br/><br/>
+                    <label htmlFor="name">Subject Name:-</label>
                     <input 
                         type="text"
                         id="name"
-                        name="department_name"
-                        value={this.state.department_name}
+                        name="subject_name"
+                        value={this.state.subject_name}
                         onChange={this.handleChange}
                     /> <br/><br/>
-                    <label htmlFor="iname">Incharge Name:-</label>
+                    <label htmlFor="semester">Semester:-</label>
                     <input 
                         type="text"
-                        id="iname"
-                        name="incharge_name"
-                        value={this.state.incharge_name}
+                        id="semester"
+                        name="semester"
+                        value={this.state.semester}
                         onChange={this.handleChange}
                     /> <br/><br/>
                     <label htmlFor="description">description:-</label>
@@ -74,7 +85,8 @@ class DepartmentForm extends React.Component{
 }
 const mapStateToProps=(state)=>{
     return {
-        course:state.course
+        course:state.course,
+        department:state.department
     }
 }
-export default connect(mapStateToProps)(DepartmentForm)
+export default connect(mapStateToProps)(SubjectForm)

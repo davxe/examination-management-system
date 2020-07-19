@@ -17,6 +17,11 @@ import AddDepartment from './component/department/AddDepartment'
 import DepartmentShow from './component/department/DepartmentShow'
 import EditDepartment from './component/department/EditDepartment'
 
+import SubjectList from './component/subject/SubjectList'
+import AddSubject from './component/subject/AddSubject'
+import SubjectShow from './component/subject/SubjectShow'
+import EditSubject from './component/subject/EditSubject'
+
 import {Navbar, Nav} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -78,6 +83,11 @@ function App(props)
                     <Route path="/departments/add" component={AddDepartment} />
                     <Route path="/departments/:id" component={DepartmentShow} exact={true} />
                     <Route path="/departments/editdepartment/:id" component={EditDepartment} />
+
+                    <Route path="/subjects" component={SubjectList} exact={true} />
+                    <Route path="/subjects/add" component={AddSubject} />
+                    <Route path="/subjects/:id" component={SubjectShow} exact={true} />
+                    <Route path="/subjects/editsubject/:id" component={EditSubject} />
                 </Switch>
             </div>
         </BrowserRouter>

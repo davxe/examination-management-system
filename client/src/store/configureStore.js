@@ -3,12 +3,14 @@ import thunk from 'redux-thunk'
 import userReducer from '../reducers/userReducer';
 import courseReducer from '../reducers/courseReducer'
 import departmentReducer from '../reducers/departmentReducer'
+import subjectReducer from '../reducers/subjectReducer'
 const configureStore=()=>{
     const store=createStore(combineReducers(
         {
             user:userReducer,
             course:courseReducer,
-            department:departmentReducer
+            department:departmentReducer,
+            subject:subjectReducer
         }
     ),applyMiddleware(thunk))
     return store

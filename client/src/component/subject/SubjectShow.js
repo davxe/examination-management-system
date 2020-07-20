@@ -7,7 +7,7 @@ function SubjectShow(props){
     console.log(props)
     return (
         <Container>
-            <h1 className='mt-5'>Subject Show</h1>
+            <h1 className='pt-5 pb-2'>Subject Show</h1>
             <h2 className='mt-3'><b>Course Name:-</b>{props.course.map(ele=>ele._id===props.subject.course?`${ele.course_name}`:'')} </h2>
             <h2 className='mt-3'><b>Department Name:-</b>{props.department.map(ele=>ele._id===props.subject.department?`${ele.department_name}`:'')} </h2>
             <h2 className='mt-3'><b>Subject Name:-</b>{props.subject.subject_name} </h2><br/>

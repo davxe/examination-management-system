@@ -25,9 +25,9 @@ class CourseForm extends React.Component{
     }
     render(){
         return(
-            <div class="fluid-container" style={{height:"600px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#add8e6,#808080,#90EE90)"}}>
+            <div class="fluid-container" style={{height:"600px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
                 <Container >
-                    <h1 className='mt-5'>Add Course</h1>
+                    <h1 className='pt-5 pb-2'>Add Course</h1>
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Label htmlFor="name">CourseName:-</Form.Label>
                         <Form.Control 

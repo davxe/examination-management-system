@@ -27,7 +27,6 @@ const teacherSchema=new Schema({
     email:{
         type:String,
         required:true,
-        required:true,
         validate:{
             validator:function(value){
                 return validator.isEmail(value)
@@ -42,6 +41,21 @@ const teacherSchema=new Schema({
         required:true,
         minlength:[10,'number should be of 10 digit'],
         maxlength:[10,'number should be of 10 digit']
+    },
+    course:{
+        type:Schema.Types.ObjectId,
+        ref:'Course',
+        required:true
+    },
+    department:{
+        type:Schema.Types.ObjectId,
+        ref:'Department',
+        required:true
+    },
+    subject:{
+        type:Schema.Types.ObjectId,
+        ref:'Subject',
+        required:true
     },
     user:{
         type:Schema.Types.ObjectId,

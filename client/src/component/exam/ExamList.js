@@ -28,9 +28,9 @@ function ExamList(props){
         })
     }
     return(
-        <div class="fluid-container" style={{height:"600px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#add8e6,#808080,#90EE90)"}}>
+        <div class="fluid-container" style={{height:"600px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
             <Container>
-                <h1 className='mt-5'>Exam - {props.exam.length} </h1>
+                <h1 className='pt-5 pb-2'>Exam - {props.exam.length} </h1>
                 <Table striped bordered hover>
                     <thead className='thead-dark'>
                         <tr>

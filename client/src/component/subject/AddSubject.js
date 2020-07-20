@@ -12,7 +12,6 @@ function AddSubject(props){
     }
         return (
             <div>
-                {/* <h2>Add Subject</h2> */}
                 <SubjectForm handleEditSubmit = {handleEditSubmit}/>
             </div>
         )

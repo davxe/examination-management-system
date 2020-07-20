@@ -31,9 +31,9 @@ class ExamForm extends React.Component{
     }
     render(){
         return(
-            <div class="fluid-container" style={{height:"700px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#add8e6,#808080,#90EE90)"}}>
+            <div class="fluid-container" style={{height:"700px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
                 <Container >
-                    <h1 className='mt-5'>Add Exam</h1>
+                    <h1 className='pt-5 pb-2'>Add Exam</h1>
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Label htmlFor="ename">Exam Name:-</Form.Label>                   
                         <Form.Control 

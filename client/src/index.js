@@ -9,6 +9,7 @@ import { startSetCourses } from './actions/courseAction'
 import { startSetDepartments } from './actions/departmentAction'
 import { startSetSubjects } from './actions/subjectAction'
 import { startSetExams } from './actions/examAction'
+import { startSetTeachers } from './actions/teacherAction'
 const store=configureStore()
 console.log(store.getState())
 
@@ -23,6 +24,7 @@ if(localStorage.getItem('authToken'))
     store.dispatch(startSetDepartments())
     store.dispatch(startSetSubjects())
     store.dispatch(startSetExams())
+    store.dispatch(startSetTeachers())
   }
 
 const jsx=(

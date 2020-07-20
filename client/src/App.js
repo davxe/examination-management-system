@@ -27,6 +27,11 @@ import AddExam from './component/exam/AddExam'
 import ExamShow from './component/exam/ExamShow'
 import EditExam from './component/exam/EditExam'
 
+import TeacherList from './component/teacher/TeacherList'
+import AddTeacher from './component/teacher/AddTeacher'
+import TeacherShow from './component/teacher/TeacherShow'
+import EditTeacher from './component/teacher/EditTeacher'
+
 import {Navbar, Nav} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -38,7 +43,6 @@ function App(props)
     return (
         <BrowserRouter>
             <div>
-                {/* <h2>Task Box</h2> */}
                 {
                     Object.keys(props.user).length!==0?(
                         <div>
@@ -98,6 +102,11 @@ function App(props)
                     <Route path="/exams/add" component={AddExam} />
                     <Route path="/exams/:id" component={ExamShow} exact={true} />
                     <Route path="/exams/editexam/:id" component={EditExam} />
+
+                    <Route path="/teachers" component={TeacherList} exact={true} />
+                    <Route path="/teachers/add" component={AddTeacher} />
+                    <Route path="/teachers/:id" component={TeacherShow} exact={true} />
+                    <Route path="/teachers/editteacher/:id" component={EditTeacher} />
                 </Switch>
             </div>
         </BrowserRouter>

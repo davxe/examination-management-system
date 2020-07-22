@@ -26,12 +26,6 @@ function SubjectList(props){
         })
         
     }
-    const findCourse=(id)=>{
-        return props.course.find(course=>course._id===id)
-    }
-    const findDepartment=(id)=>{
-        return props.department.find(department=>department._id===id)
-    }
     return(
         <div class="fluid-container" style={{height:"600px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
             <Container>
@@ -56,8 +50,8 @@ function SubjectList(props){
                                 return (
                                     <tr key={i}>
                                         <td> {i+1} </td>
-                                        <td> {findCourse(ele.course)?.course_name} </td>
-                                        <td> {findDepartment(ele.department)?.department_name} </td>
+                                        <td> {ele.course.course_name} </td>
+                                        <td> {ele.department.department_name} </td>
                                         <td> {ele.subject_name} </td>
                                         <td> {ele.semester} </td>
                                         <td> {ele.description} </td>

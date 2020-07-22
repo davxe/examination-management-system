@@ -8,18 +8,19 @@ class TeacherForm extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            course:props.teacher ? props.teacher.course:'',
+            course:props.student ? props.student.course:'',
             dept:[],
-            department:props.teacher ? props.teacher.department:[],
+            department:props.student ? props.student.department:[],
             departmentnew:[],
-            subject: props.teacher ? props.teacher.subject:"",
-            name: props.teacher ? props.teacher.name:'',
-            gender:props.teacher ? props.teacher.gender:'',
-            dob:props.teacher ? props.teacher.dob:'',
-            qualification:props.teacher ? props.teacher.qualification:'',
-            experience:props.teacher ? props.teacher.experience:'',
-            email:props.teacher ? props.teacher.email:'',
-            mobile:props.teacher ? props.teacher.mobile:''
+            semester: props.student ? props.student.semester: '',
+            name: props.student ? props.student.name:'',
+            fathers_name: props.student ? props.student.fathers_name:'',
+            gender:props.student ? props.student.gender:'',
+            dob:props.student ? props.student.dob:'',
+            address:props.student ? props.student.address:'',
+            parents_mobile:props.student ? props.student.parents_mobile:'',
+            email:props.student ? props.student.email:'',
+            mobile:props.student ? props.student.mobile:''
         }
     }
     handleSubmit = (e) => {
@@ -27,16 +28,17 @@ class TeacherForm extends React.Component{
         const formData = {
             course:this.state.course,
             department: this.state.department,
-            subject:this.state.subject,
+            semester:this.state.semester,
             name:this.state.name,
+            fathers_name:this.state.fathers_name,
             gender:this.state.gender,
             dob:this.state.dob,
-            qualification:this.state.qualification,
-            experience:this.state.experience,
+            address:this.state.address,
+            parents_mobile:this.state.parents_mobile,
             email:this.state.email,
             mobile:this.state.mobile,
         }
-        this.props.teacher && (formData.id = this.props.teacher._id)
+        this.props.student && (formData.id = this.props.student._id)
         this.props.handleEditSubmit(formData)
     }
 
@@ -72,7 +74,6 @@ class TeacherForm extends React.Component{
     }
 
     componentDidMount(){
-
         axios.get('/departments',{headers:{'x-auth':localStorage.getItem('authToken')}})
         .then(response=>{
             const department = response.data
@@ -95,8 +96,9 @@ class TeacherForm extends React.Component{
         return(
             <div class="fluid-container" style={{height:"80%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
                 <Container >
-                    <h1 className='pt-5 pb-2'>Add Teacher</h1>
+                    <h1 className='pt-5 pb-2'>Add Student</h1>
                     <Form onSubmit={this.handleSubmit}>
+
                         <Form.Label htmlFor="cname">Course Name:-</Form.Label>                   
                         <Form.Control as='select' name='course' id='cname' value={this.state.course} onChange={this.handleChange}>
                             <option value=''>----select----</option>
@@ -110,23 +112,22 @@ class TeacherForm extends React.Component{
                         <Form.Label htmlFor="dname">Department Name:-</Form.Label>                   
                         <Form.Control as='select' name='department' id='dname' value={this.state.department} onChange={this.handleChange}>
                             <option value=''>----select----</option>
-                                {
-                                    this.state.departmentnew.map((department)=>{
-                                        return <option value={department.id} key={department.id}>{department.label}</option>
-                                    })
-                                }
-                        </Form.Control><br/><br/>
-
-                        <Form.Label htmlFor="sname">Subject Name:-</Form.Label>     
-                        <Form.Control as='select' name='subject' id='sname' value={this.state.subject} onChange={this.handleChange}>
-                            <option value=''>----select----</option>
                             {
-                                this.props.subject.map((subject)=>{
-                                    return <option value={subject._id} key={subject._id}>{subject.subject_name}</option>
+                                this.state.departmentnew.map((department)=>{
+                                    return <option value={department.id} key={department.id}>{department.label}</option>
                                 })
                             }
                         </Form.Control><br/><br/>
 
+                        <Form.Label htmlFor="semester">Semester:-</Form.Label>
+                        <Form.Control
+                            type="text"
+                            id="semester"
+                            name="semester"
+                            value={this.state.semester}
+                            onChange={this.handleChange}
+                        /> <br/><br/>
+                        
                         <Form.Label htmlFor="name">Name:-</Form.Label>
                         <Form.Control 
                             type="text"
@@ -170,21 +171,30 @@ class TeacherForm extends React.Component{
                             onChange={this.handleChange}
                         /> <br/><br/>
 
-                        <Form.Label htmlFor="qualification">Qualification:-</Form.Label>
+                        <Form.Label htmlFor="fathers_name">FathersName:-</Form.Label>
                         <Form.Control
                             type="text"
-                            id="qualification"
-                            name="qualification"
-                            value={this.state.qualification}
+                            id="fathers_name"
+                            name="fathers_name"
+                            value={this.state.fathers_name}
                             onChange={this.handleChange}
                         /> <br/><br/>
 
-                        <Form.Label htmlFor="experience">Experience:-</Form.Label>
+                        <Form.Label htmlFor="address">Address:-</Form.Label>
+                        <Form.Control as='textarea' rows='3'
+                            type="text"
+                            id="address"
+                            name="address"
+                            value={this.state.address}
+                            onChange={this.handleChange}
+                        /> <br/><br/>
+
+                        <Form.Label htmlFor="parents_mobile">ParentsMobile:-</Form.Label>
                         <Form.Control
                             type="text"
-                            id="experience"
-                            name="experience"
-                            value={this.state.experience}
+                            id="parents_mobile"
+                            name="parents_mobile"
+                            value={this.state.parents_mobile}
                             onChange={this.handleChange}
                         /> <br/><br/>
 
@@ -208,7 +218,6 @@ const mapStateToProps=(state)=>{
     return {
         course:state.course,
         department:state.department,
-        subject:state.subject
     }
 }
 export default connect(mapStateToProps)(TeacherForm)

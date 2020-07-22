@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { startRemoveDepartment} from '../../actions/departmentAction'
+import { startRemoveRoom} from '../../actions/roomAction'
 
 import swal from 'sweetalert'
 import { Container, Table, Button } from 'react-bootstrap' 
 
-function DepartmentList(props){
+function RoomList(props){
     //console.log(props.department)
 
     const handleRemove = (id) => {
@@ -22,22 +22,19 @@ function DepartmentList(props){
                 swal("Successfully Deleted", {	
                     icon: "success",
                 });
-                props.dispatch(startRemoveDepartment(id)) 
+                props.dispatch(startRemoveRoom(id)) 
             } 
         })
     }
     return(
         <div className="fluid-container" style={{height:"600px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
             <Container>
-                <h1 className='pt-5 pb-2'>Department - {props.department.length} </h1>
+                <h1 className='pt-5 pb-2'>Room - {props.room.length} </h1>
                 <Table striped bordered hover>
                     <thead className='thead-dark'>
                         <tr>
                             <th>Id</th>
-                            <th>CourseName</th>
-                            <th>DepartmentName</th>
-                            <th>InchargeName</th>
-                            <th>Description</th>
+                            <th>Room No.</th>
                             <th>Show</th>
                             <th>Update</th>
                             <th>Remove</th>
@@ -45,16 +42,13 @@ function DepartmentList(props){
                     </thead>
                     <tbody>
                         {
-                            props.department.map((ele,i) => {
+                            props.room.map((ele,i) => {
                                 return (
-                                    <tr key={i}>
+                                    <tr key={ele._id}>
                                         <td> {i+1} </td>
-                                        <td> {ele.course.course_name} </td>
-                                        <td> {ele.department_name} </td>
-                                        <td> {ele.incharge_name} </td>
-                                        <td> {ele.description} </td>
-                                        <td><Link to={`/departments/${ele._id}`}><Button className='btn btn-info'>show</Button></Link></td>
-                                        <td><Link to={`/departments/editdepartment/${ele._id}`}><Button className='btn btn-warning'>update</Button></Link></td>
+                                        <td> {ele.room} </td>
+                                        <td><Link to={`/rooms/${ele._id}`}><Button className='btn btn-info'>show</Button></Link></td>
+                                        <td><Link to={`/rooms/editroom/${ele._id}`}><Button className='btn btn-warning'>update</Button></Link></td>
                                         <td> <Button onClick={ () => handleRemove(ele._id)} className='btn btn-danger'>remove</Button> </td>
                                     </tr>
                                 )
@@ -62,7 +56,7 @@ function DepartmentList(props){
                         }
                     </tbody>
                 </Table>
-                <Link to="/departments/add">Add Department</Link>
+                <Link to="/rooms/add">Add Room</Link>
             </Container>
         </div>
     )
@@ -70,8 +64,7 @@ function DepartmentList(props){
 
 const mapStateToProps = (state) => {
     return {
-        course: state.course,
-        department:state.department,
+        room:state.room
     }
 }
-export default connect(mapStateToProps)(DepartmentList)
+export default connect(mapStateToProps)(RoomList)

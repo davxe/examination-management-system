@@ -32,6 +32,16 @@ import AddTeacher from './component/teacher/AddTeacher'
 import TeacherShow from './component/teacher/TeacherShow'
 import EditTeacher from './component/teacher/EditTeacher'
 
+import StudentList from './component/student/StudentList'
+import AddStudent from './component/student/AddStudent'
+import StudentShow from './component/student/StudentShow'
+import EditStudent from './component/student/EditStudent'
+
+import RoomList from './component/room/RoomList'
+import AddRoom from './component/room/AddRoom'
+import RoomShow from './component/room/RoomShow'
+import EditRoom from './component/room/EditRoom'
+
 import {Navbar, Nav} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -51,13 +61,13 @@ function App(props)
                                 <Nav className="ml-auto" >
                                     <Nav.Link href={"/"} style={{color:'white'}}>Home</Nav.Link>
                                     <Nav.Link href={"/admins"} style={{color:'white'}}>Admin</Nav.Link>
-                                    <Nav.Link href={"/departments"} style={{color:'white'}}>Department</Nav.Link>
                                     <Nav.Link href={"/courses"} style={{color:'white'}}>Course</Nav.Link>
+                                    <Nav.Link href={"/departments"} style={{color:'white'}}>Department</Nav.Link>
                                     <Nav.Link href={"/subjects"} style={{color:'white'}}>Subject</Nav.Link>
                                     <Nav.Link href={"/teachers"} style={{color:'white'}}>Teacher</Nav.Link>
+                                    <Nav.Link href={"/students"} style={{color:'white'}}>Student</Nav.Link>
                                     <Nav.Link href={"/exams"} style={{color:'white'}}>Exam</Nav.Link>
                                     <Nav.Link href={"/datesheets"} style={{color:'white'}}>Datesheet</Nav.Link>
-                                    <Nav.Link href={"/students"} style={{color:'white'}}>Student</Nav.Link>
                                     <Nav.Link href={"/rooms"} style={{color:'white'}}>RoomNo</Nav.Link>
                                     <Nav.Link href={"/seatingplans"} style={{color:'white'}}>SeatingPlan</Nav.Link>
                                     <Nav.Link to="#" onClick={handleLogout} style={{color:'white'}}>Logout</Nav.Link>
@@ -107,6 +117,16 @@ function App(props)
                     <Route path="/teachers/add" component={AddTeacher} />
                     <Route path="/teachers/:id" component={TeacherShow} exact={true} />
                     <Route path="/teachers/editteacher/:id" component={EditTeacher} />
+
+                    <Route path="/students" component={StudentList} exact={true} />
+                    <Route path="/students/add" component={AddStudent} />
+                    <Route path="/students/:id" component={StudentShow} exact={true} />
+                    <Route path="/students/editstudent/:id" component={EditStudent} />
+
+                    <Route path="/rooms" component={RoomList} exact={true} />
+                    <Route path="/rooms/add" component={AddRoom} />
+                    <Route path="/rooms/:id" component={RoomShow} exact={true} />
+                    <Route path="/rooms/editroom/:id" component={EditRoom} />
                 </Switch>
             </div>
         </BrowserRouter>

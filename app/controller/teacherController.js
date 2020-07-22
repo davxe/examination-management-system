@@ -1,7 +1,7 @@
 const Teacher = require('../models/teacher')
 
 module.exports.list = (req, res) => {
-    Teacher.find({ user:req.user._id})
+    Teacher.find({ user:req.user._id}).populate('course').populate('department').populate('subject')
         .then((teacher) => {
             res.json(teacher)
         })
@@ -12,7 +12,7 @@ module.exports.list = (req, res) => {
 
 module.exports.show = (req, res) => {
     const id = req.params.id
-    Teacher.findOne({_id:id,user:req.user._id})
+    Teacher.findOne({_id:id,user:req.user._id}).populate('course').populate('department').populate('subject')
         .then((teacher) => {
             if (teacher) {
                 res.json(teacher)

@@ -1,7 +1,7 @@
 const Subject = require('../models/subject')
 
 module.exports.list = (req, res) => {
-    Subject.find({ user:req.user._id})
+    Subject.find({ user:req.user._id}).populate('course').populate('department')
         .then((subject) => {
             res.json(subject)
         })
@@ -12,7 +12,7 @@ module.exports.list = (req, res) => {
 
 module.exports.show = (req, res) => {
     const id = req.params.id
-    Subject.findOne({_id:id,user:req.user._id})
+    Subject.findOne({_id:id,user:req.user._id}).populate('course').populate('department')
         .then((subject) => {
             if (subject) {
                 res.json(subject)

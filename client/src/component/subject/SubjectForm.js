@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import axios from 'axios'
 import {Container, Form} from 'react-bootstrap'
 
 class SubjectForm extends React.Component{
@@ -8,7 +9,9 @@ class SubjectForm extends React.Component{
         super(props)
         this.state = {
             course:props.subject ? props.subject.course:'',
-            department:props.subject ? props.subject.department:'',
+            dept:[],
+            department:props.subject ? props.subject.department:[],
+            departmentnew:[],
             subject_name: props.subject ? props.subject.subject_name : '',
             semester: props.subject ? props.department.semester:'',
             description: props.subject ? props.subject.description : '',
@@ -30,6 +33,35 @@ class SubjectForm extends React.Component{
         this.setState({
             [e.target.name]: e.target.value
         })
+        if(e.target.name === 'course'){
+            this.setState({
+                departmentnew:this.state.dept.filter(department=>department.courseId === e.target.value )
+            })
+            console.log('departmentnew', this.state.departmentnew)
+        }
+    }
+    componentDidMount(){
+
+        axios.get('/departments',{
+            headers: {
+                'x-auth': localStorage.getItem('authToken')
+            }
+        })
+        .then(response=>{
+            const department = response.data
+            let dept = []
+            department.map(department=>{
+                return (
+                    dept.push({
+                        id: department._id,
+                        value: department._id,
+                        label: department.department_name,
+                        courseId: department.course._id,
+                    })
+                )
+            })
+            this.setState({dept})
+        })   
     }
     render(){
         return(
@@ -49,11 +81,11 @@ class SubjectForm extends React.Component{
                         <Form.Label htmlFor="dname">Department Name:-</Form.Label>                   
                         <Form.Control as='select' name='department' id='dname' value={this.state.department} onChange={this.handleChange}>
                             <option value=''>----select----</option>
-                            {
-                                this.props.department.map((department)=>{
-                                    return <option value={department._id} key={department._id}>{department.department_name}</option>
-                                })
-                            }
+                                {
+                                    this.state.departmentnew.map((department)=>{
+                                        return <option value={department.id} key={department.id}>{department.label}</option>
+                                    })
+                                }
                         </Form.Control><br/><br/>
                         <Form.Label htmlFor="name">Subject Name:-</Form.Label>
                         <Form.Control 

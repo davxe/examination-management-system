@@ -1,7 +1,7 @@
 const Department = require('../models/department')
 
 module.exports.list = (req, res) => {
-    Department.find({ user:req.user._id})
+    Department.find({ user:req.user._id}).populate('course')
         .then((department) => {
             res.json(department)
         })
@@ -12,7 +12,7 @@ module.exports.list = (req, res) => {
 
 module.exports.show = (req, res) => {
     const id = req.params.id
-    Department.findOne({_id:id,user:req.user._id})
+    Department.findOne({_id:id,user:req.user._id}).populate('course')
         .then((department) => {
             if (department) {
                 res.json(department)

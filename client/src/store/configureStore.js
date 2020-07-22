@@ -6,6 +6,8 @@ import departmentReducer from '../reducers/departmentReducer'
 import subjectReducer from '../reducers/subjectReducer'
 import examReducer from '../reducers/examReducer';
 import teacherReducer from '../reducers/teacherReducer'
+import studentReducer from '../reducers/studentReducer'
+import roomReducer from '../reducers/roomReducer'
 const configureStore=()=>{
     const store=createStore(combineReducers(
         {
@@ -14,7 +16,9 @@ const configureStore=()=>{
             department:departmentReducer,
             subject:subjectReducer,
             exam:examReducer,
-            teacher:teacherReducer
+            teacher:teacherReducer,
+            student:studentReducer,
+            room:roomReducer
         }
     ),applyMiddleware(thunk))
     return store

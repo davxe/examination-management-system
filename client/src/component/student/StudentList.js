@@ -31,10 +31,10 @@ function StudentList(props){
         <div className="fluid-container" style={{height:"600px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9 )"}}>
             <Container>
                 <h1 className='pt-5 pb-2'>Student - {props.student.length} </h1>
-                <Table striped bordered hover>
+                <Table striped bordered hover responsive>
                     <thead className='thead-dark'>
                         <tr>
-                            <th>Id</th>
+                            <th>Roll No:-</th>
                             <th>CourseName</th>
                             <th>DepartmentName</th>
                             <th>Semester</th>
@@ -52,7 +52,7 @@ function StudentList(props){
                             props.student.map((ele,i) => {
                                 return (
                                     <tr key={i}>
-                                        <td> {i+1} </td>
+                                        <td> {ele.roll} </td>
                                         <td> {ele.course.course_name} </td>
                                         <td> {ele.department.department_name} </td>
                                         <td> {ele.semester} </td>

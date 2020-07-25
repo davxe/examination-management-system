@@ -10,6 +10,7 @@ const examController = require('../app/controller/examController')
 const teacherController = require('../app/controller/teacherController')
 const subjectController = require('../app/controller/subjectController')
 const studentController = require('../app/controller/studentController')
+const datesheetController = require('../app/controller/datesheetController')
 const roomController = require('../app/controller/roomController')
 
 //user authentication
@@ -52,6 +53,12 @@ router.post('/students',authenticateUsers,studentController.create)
 router.get('/students/:id',authenticateUsers,studentController.show)
 router.put('/students/:id',authenticateUsers,studentController.update)
 router.delete('/students/:id',authenticateUsers,studentController.destroy)
+//datesheet
+router.get('/datesheets',authenticateUsers,datesheetController.list)
+router.post('/datesheets',authenticateUsers,datesheetController.create)
+router.get('/datesheets/:id',authenticateUsers,datesheetController.show)
+router.put('/datesheets/:id',authenticateUsers,datesheetController.update)
+router.delete('/datesheets/:id',authenticateUsers,datesheetController.destroy)
 //room
 router.get('/rooms',authenticateUsers,roomController.list)
 router.post('/rooms',authenticateUsers,roomController.create)

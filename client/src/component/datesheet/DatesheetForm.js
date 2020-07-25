@@ -3,42 +3,38 @@ import {connect} from 'react-redux'
 import {Container, Form} from 'react-bootstrap'
 import axios from 'axios'
 
-class TeacherForm extends React.Component{
+class DatesheetForm extends React.Component{
 
     constructor(props){
         super(props)
         this.state = {
-            course:props.teacher ? props.teacher.course:'',
+            exam:props.datesheet ? props.datesheet.exam:'',
+            course:props.datesheet ? props.datesheet.course:'',
             dept:[],
-            department:props.teacher ? props.teacher.department:[],
+            department:props.datesheet ? props.datesheet.department:[],
             departmentnew:[],
-            sub:[],
-            subject: props.teacher ? props.teacher.subject:[],
+            dub:[],
+            subject: props.datesheet ? props.datesheet.subject:[],
             subjectnew:[],
-            name: props.teacher ? props.teacher.name:'',
-            gender:props.teacher ? props.teacher.gender:'',
-            dob:props.teacher ? props.teacher.dob:'',
-            qualification:props.teacher ? props.teacher.qualification:'',
-            experience:props.teacher ? props.teacher.experience:'',
-            email:props.teacher ? props.teacher.email:'',
-            mobile:props.teacher ? props.teacher.mobile:''
+            semester: props.datesheet ? props.datesheet.semester:'',
+            examDate:props.datesheet ? props.datesheet.examDate:'',
+            startTime:props.datesheet ? props.datesheet.startTime:'',
+            endTime:props.datesheet ? props.datesheet.endTime:'',
         }
     }
     handleSubmit = (e) => {
         e.preventDefault()
         const formData = {
+            exam:this.state.exam,
             course:this.state.course,
             department: this.state.department,
             subject:this.state.subject,
-            name:this.state.name,
-            gender:this.state.gender,
-            dob:this.state.dob,
-            qualification:this.state.qualification,
-            experience:this.state.experience,
-            email:this.state.email,
-            mobile:this.state.mobile,
+            semester:this.state.semester,
+            examDate:this.state.examDate,
+            startTime:this.state.startTime,
+            endTime:this.state.endTime,
         }
-        this.props.teacher && (formData.id = this.props.teacher._id)
+        this.props.datesheet && (formData.id = this.props.datesheet._id)
         this.props.handleEditSubmit(formData)
     }
 
@@ -59,28 +55,7 @@ class TeacherForm extends React.Component{
             console.log('subjectnew', this.state.subjectnew) 
         }
     }
-
-    handleChangeName=(e)=>{
-        const name=e.target.value
-        this.setState({
-            name
-        })
-    }
-
-    handleChangeEmail=(e)=>{
-        axios.get('https://api.genderize.io/?name='+this.state.name)
-        .then(response=>{
-            const user=response.data
-            this.setState({gender:user.gender})
-        })
-    }
-
-    handleRadioChange=(gender)=>{
-        this.setState({gender})
-    }
-
     componentDidMount(){
-
         axios.get('/departments',{headers:{'x-auth':localStorage.getItem('authToken')}})
         .then(response=>{
             const department = response.data
@@ -120,8 +95,18 @@ class TeacherForm extends React.Component{
         return(
             <div className="fluid-container" style={{height:"80%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
                 <Container >
-                    <h1 className='pt-5 pb-2'>Add Teacher</h1>
+                    <h1 className='pt-5 pb-2'>Add Datesheet</h1>
                     <Form onSubmit={this.handleSubmit}>
+                        <Form.Label htmlFor="ename">Exam Name:-</Form.Label>                   
+                        <Form.Control as='select' name='exam' id='ename' value={this.state.exam} onChange={this.handleChange}>
+                            <option value=''>----select----</option>
+                            {
+                                this.props.exam.map((exam)=>{
+                                    return <option value={exam._id} key={exam._id}>{exam.exam_name}</option>
+                                })
+                            }
+                        </Form.Control><br/><br/>
+
                         <Form.Label htmlFor="cname">Course Name:-</Form.Label>                   
                         <Form.Control as='select' name='course' id='cname' value={this.state.course} onChange={this.handleChange}>
                             <option value=''>----select----</option>
@@ -152,73 +137,38 @@ class TeacherForm extends React.Component{
                             }
                         </Form.Control><br/><br/>
 
-                        <Form.Label htmlFor="name">Name:-</Form.Label>
+                        <Form.Label htmlFor="semester">Semester:-</Form.Label>
                         <Form.Control 
                             type="text"
-                            id="name"
-                            name="name"
-                            onBlur={this.handleChangeName}
+                            id="semester"
+                            name="semester"
+                            onChange={this.handleChange}
                         /> <br/><br/>
 
-                        <Form.Label htmlFor="email">Email:-</Form.Label>
+                        <Form.Label htmlFor="examDate">Exam Date:-</Form.Label>
                         <Form.Control 
-                            type="text"
-                            id="email"
-                            name="email"
-                            value={this.state.email}
-                            onFocus={this.handleChangeEmail}
+                            type="Date"
+                            id="examDate"
+                            name="examDate"
+                            value={this.state.examDate}
                             onChange={this.handleChange}
                         /> <br/><br/>
 
-                        <Form.Label>Gender:-</Form.Label>
-                        <Form.Check inline label='Male'
-                            type="radio"
-                            id="male"
-                            name="gender"
-                            checked={this.state.gender==='male'}
-                            onChange={()=>{this.handleRadioChange('male')}}
-                        />
-                        <Form.Check inline label='Female'
-                            type="radio"
-                            id="female"
-                            name="gender"
-                            checked={this.state.gender==='female'}
-                            onChange={()=>{this.handleRadioChange('female')}}
-                        /> <br/><br/>
-
-                        <Form.Label htmlFor="dob">DOB:-</Form.Label>
+                        <Form.Label htmlFor="stime">StartTime:-</Form.Label>
                         <Form.Control
-                            type="date"
-                            id="dob"
-                            name="dob"
-                            value={this.state.dob}
+                            type="time"
+                            id="stime"
+                            name="startTime"
+                            value={this.state.startTime}
                             onChange={this.handleChange}
                         /> <br/><br/>
 
-                        <Form.Label htmlFor="qualification">Qualification:-</Form.Label>
+                        <Form.Label htmlFor="endTime">EndTime:-</Form.Label>
                         <Form.Control
-                            type="text"
-                            id="qualification"
-                            name="qualification"
-                            value={this.state.qualification}
-                            onChange={this.handleChange}
-                        /> <br/><br/>
-
-                        <Form.Label htmlFor="experience">Experience:-</Form.Label>
-                        <Form.Control
-                            type="text"
-                            id="experience"
-                            name="experience"
-                            value={this.state.experience}
-                            onChange={this.handleChange}
-                        /> <br/><br/>
-
-                        <Form.Label htmlFor="mobile">Mobile:-</Form.Label>
-                        <Form.Control
-                            type="text"
-                            id="mobile"
-                            name="mobile"
-                            value={this.state.mobile}
+                            type="time"
+                            id="endTime"
+                            name="endTime"
+                            value={this.state.endTime}
                             onChange={this.handleChange}
                         /> <br/><br/>
 
@@ -233,7 +183,8 @@ const mapStateToProps=(state)=>{
     return {
         course:state.course,
         department:state.department,
-        subject:state.subject
+        subject:state.subject,
+        exam:state.exam
     }
 }
-export default connect(mapStateToProps)(TeacherForm)
+export default connect(mapStateToProps)(DatesheetForm)

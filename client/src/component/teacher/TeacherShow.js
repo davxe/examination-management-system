@@ -8,9 +8,9 @@ function TeacherShow(props){
     return (
         <Container>
             <h1 className='pt-5 pb-2'>Teacher Show</h1>
-            <h2 className='mt-3'><b>Course Name:-</b>{props.course.map(ele=>ele._id===props.teacher.course?`${ele.course_name}`:'')} </h2>
-            <h2 className='mt-3'><b>Department Name:-</b>{props.department.map(ele=>ele._id===props.teacher.department?`${ele.department_name}`:'')} </h2>
-            <h2 className='mt-3'><b>Subject Name:-</b>{props.subject.map(ele=>ele._id===props.teacher.subject?`${ele.subject_name}`:'')} </h2>
+            <h2 className='mt-3'><b>Course Name:-</b>{props.teacher.course.course_name} </h2>
+            <h2 className='mt-3'><b>Department Name:-</b>{props.teacher.department.department_name}</h2>
+            <h2 className='mt-3'><b>Subject Name:-</b>{props.teacher.subject.subject_name} </h2>
             <h2 className='mt-3'><b>Teacher Name:-</b>{props.teacher.name} </h2>
             <h2 className='mt-3'><b>Qualification:-</b>{props.teacher.qualification} </h2>
             <h2 className='mt-3'><b>Experience:-</b>{props.teacher.experience}</h2>

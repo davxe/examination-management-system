@@ -42,6 +42,11 @@ import AddRoom from './component/room/AddRoom'
 import RoomShow from './component/room/RoomShow'
 import EditRoom from './component/room/EditRoom'
 
+import DatesheetList from './component/datesheet/DatesheetList'
+import AddDatesheet from './component/datesheet/AddDatesheet'
+import DatesheetShow from './component/datesheet/DatesheetShow'
+import EditDatesheet from './component/datesheet/EditDatesheet'
+
 import {Navbar, Nav} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -127,6 +132,11 @@ function App(props)
                     <Route path="/rooms/add" component={AddRoom} />
                     <Route path="/rooms/:id" component={RoomShow} exact={true} />
                     <Route path="/rooms/editroom/:id" component={EditRoom} />
+
+                    <Route path="/datesheets" component={DatesheetList} exact={true} />
+                    <Route path="/datesheets/add" component={AddDatesheet} />
+                    <Route path="/datesheets/:id" component={DatesheetShow} exact={true} />
+                    <Route path="/datesheets/editdatesheet/:id" component={EditDatesheet} />
                 </Switch>
             </div>
         </BrowserRouter>

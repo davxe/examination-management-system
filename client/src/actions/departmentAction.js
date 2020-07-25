@@ -12,9 +12,9 @@ export const startAddDepartments =(formData,redirect)=>{
                 }
                 else{
                     alert('successfully added')
-                    const deprtment =response.data
+                    const department =response.data
                     redirect()
-                    dispatch(AddDepartments(deprtment))
+                    dispatch(AddDepartments(department))
                 }
             })
     }

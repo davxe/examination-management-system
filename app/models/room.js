@@ -5,7 +5,8 @@ const roomSchema=new Schema({
     room:{
         type:String,
         required:true,
-        minlength:[3,'minimum 5 length is required']
+        minlength:[3,'minimum 5 length is required'],
+        unique:true
     },
     user:{
         type:Schema.Types.ObjectId,

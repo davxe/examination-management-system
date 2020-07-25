@@ -13,6 +13,7 @@ class TeacherForm extends React.Component{
             department:props.student ? props.student.department:[],
             departmentnew:[],
             semester: props.student ? props.student.semester: '',
+            rill: props.student ? props.student.roll: '',
             name: props.student ? props.student.name:'',
             fathers_name: props.student ? props.student.fathers_name:'',
             gender:props.student ? props.student.gender:'',
@@ -29,6 +30,7 @@ class TeacherForm extends React.Component{
             course:this.state.course,
             department: this.state.department,
             semester:this.state.semester,
+            roll:this.state.roll,
             name:this.state.name,
             fathers_name:this.state.fathers_name,
             gender:this.state.gender,
@@ -94,7 +96,7 @@ class TeacherForm extends React.Component{
 
     render(){
         return(
-            <div class="fluid-container" style={{height:"80%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
+            <div className="fluid-container" style={{height:"80%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
                 <Container >
                     <h1 className='pt-5 pb-2'>Add Student</h1>
                     <Form onSubmit={this.handleSubmit}>
@@ -125,6 +127,15 @@ class TeacherForm extends React.Component{
                             id="semester"
                             name="semester"
                             value={this.state.semester}
+                            onChange={this.handleChange}
+                        /> <br/><br/>
+
+                        <Form.Label htmlFor="roll">Roll No:-:-</Form.Label>
+                        <Form.Control
+                            type="number"
+                            id="roll"
+                            name="roll"
+                            value={this.state.roll}
                             onChange={this.handleChange}
                         /> <br/><br/>
                         

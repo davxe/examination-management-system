@@ -12,6 +12,7 @@ import { startSetExams } from './actions/examAction'
 import { startSetTeachers } from './actions/teacherAction'
 import { startSetStudents } from './actions/studentAction'
 import { startSetRooms } from './actions/roomAction'
+import { startSetDatesheets } from './actions/datesheetAction'
 const store=configureStore()
 console.log(store.getState())
 
@@ -29,6 +30,7 @@ if(localStorage.getItem('authToken'))
     store.dispatch(startSetTeachers())
     store.dispatch(startSetStudents())
     store.dispatch(startSetRooms())
+    store.dispatch(startSetDatesheets())
   }
 
 const jsx=(

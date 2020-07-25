@@ -27,10 +27,10 @@ function SubjectList(props){
         
     }
     return(
-        <div class="fluid-container" style={{height:"600px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
+        <div className="fluid-container" style={{height:"100%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
             <Container>
                 <h1 className='pt-5 pb-2'>Subject - {props.subject.length} </h1>
-                <Table striped bordered hover>
+                <Table striped bordered hover responsive>
                     <thead className='thead-dark'>
                         <tr>
                             <th>Id</th>

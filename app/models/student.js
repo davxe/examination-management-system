@@ -2,6 +2,10 @@ const mongoose=require('mongoose')
 const validator= require('validator')
 const Schema=mongoose.Schema
 const studentSchema=new Schema({
+    roll:{
+        type:Number,
+        required:true
+    },
     name:{
         type:String,
         required:true,

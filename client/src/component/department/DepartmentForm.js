@@ -31,7 +31,7 @@ class DepartmentForm extends React.Component{
     }
     render(){
         return(
-            <div class="fluid-container" style={{height:"700px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
+            <div className="fluid-container" style={{height:"700px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
                 <Container >
                     <h1 className='pt-5 pb-2'>Add Department</h1>
                     <Form onSubmit={this.handleSubmit}>

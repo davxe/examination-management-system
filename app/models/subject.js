@@ -17,8 +17,9 @@ const subjectSchema=new Schema({
         required:true
     },
     semester:{
-        type:String,
-        required:true,
+        type:Schema.Types.ObjectId,
+        ref:'Semester',
+        required:true
     },
     description:{
         type:String,

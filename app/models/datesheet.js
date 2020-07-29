@@ -17,7 +17,8 @@ const datesheetSchema=new Schema({
         required:true
     },
     semester:{
-        type:String,
+        type:Schema.Types.ObjectId,
+        ref:'Semester',
         required:true
     },
     subject:{
@@ -43,6 +44,15 @@ const datesheetSchema=new Schema({
     },
     endTime:{
         type:String,
+        required:true
+    },
+    student:{
+        type:Schema.Types.ObjectId,
+        ref:'Student',
+    },
+    room:{
+        type:Schema.Types.ObjectId,
+        ref:'Room',
         required:true
     },
     user:{

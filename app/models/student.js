@@ -4,7 +4,8 @@ const Schema=mongoose.Schema
 const studentSchema=new Schema({
     roll:{
         type:Number,
-        required:true
+        required:true,
+        unique:true
     },
     name:{
         type:String,
@@ -56,7 +57,8 @@ const studentSchema=new Schema({
         required:true
     },
     semester:{
-        type:String,
+        type:Schema.Types.ObjectId,
+        ref:'Semester',
         required:true
     },
     dob:{

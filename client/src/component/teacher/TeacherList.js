@@ -27,20 +27,11 @@ function TeacherList(props){
         })
         
     }
-    // const findCourse=(id)=>{
-    //     return props.course.find(course=>course._id===id)
-    // }
-    // const findDepartment=(id)=>{
-    //     return props.department.find(department=>department._id===id)
-    // }
-    // const findSubject=(id)=>{
-    //     return props.subject.find(subject=>subject._id===id)
-    // }
     return(
         <div className="fluid-container" style={{height:"100%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9 )"}}>
             <Container>
                 <h1 className='pt-5 pb-2'>Teacher - {props.teacher.length} </h1>
-                <Table striped bordered hover responsive>
+                <Table striped bordered hover responsive style={{textAlign:'center'}}>
                     <thead className='thead-dark'>
                         <tr>
                             <th>Id</th>

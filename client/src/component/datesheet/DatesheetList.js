@@ -38,8 +38,8 @@ function DatesheetList(props){
                             <th>ExamName</th>
                             <th>CourseName</th>
                             <th>DepartmentName</th>
-                            <th>SubjectName</th>
                             <th>Semester</th>
+                            <th>SubjectName</th>
                             <th>ExamDate</th>
                             <th>StartTime</th>
                             <th>EndTime</th>
@@ -57,8 +57,8 @@ function DatesheetList(props){
                                         <td> {ele.exam.exam_name} </td>
                                         <td> {ele.course.course_name} </td>
                                         <td> {ele.department.department_name} </td>
+                                        <td> {ele.semester.semester} </td>
                                         <td> {ele.subject.subject_name} </td>
-                                        <td> {ele.semester} </td>
                                         <td> {moment(ele.examDate).format('L')} </td>
                                         <td> {ele.startTime} </td>
                                         <td> {ele.endTime} </td>

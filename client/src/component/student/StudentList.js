@@ -34,7 +34,8 @@ function StudentList(props){
                 <Table striped bordered hover responsive>
                     <thead className='thead-dark'>
                         <tr>
-                            <th>Roll No:-</th>
+                            <th>Id</th>
+                            <th>RollNo:-</th>
                             <th>CourseName</th>
                             <th>DepartmentName</th>
                             <th>Semester</th>
@@ -52,10 +53,11 @@ function StudentList(props){
                             props.student.map((ele,i) => {
                                 return (
                                     <tr key={i}>
+                                        <td>{i+1}</td>
                                         <td> {ele.roll} </td>
                                         <td> {ele.course.course_name} </td>
                                         <td> {ele.department.department_name} </td>
-                                        <td> {ele.semester} </td>
+                                        <td> {ele.semester.semester} </td>
                                         <td> {ele.name} </td>
                                         <td> {ele.email} </td>
                                         <td> {ele.gender} </td>
@@ -79,6 +81,7 @@ const mapStateToProps = (state) => {
     return {
         course: state.course,
         department:state.department,
+        semester:state.semester,
         student:state.student
     }
 }

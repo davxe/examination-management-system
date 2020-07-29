@@ -14,9 +14,13 @@ class DatesheetForm extends React.Component{
             department:props.datesheet ? props.datesheet.department:[],
             departmentnew:[],
             dub:[],
-            subject: props.datesheet ? props.datesheet.subject:[],
+            subject:props.datesheet ? props.datesheet.subject:[],
             subjectnew:[],
-            semester: props.datesheet ? props.datesheet.semester:'',
+            semester:props.datesheet ? props.datesheet.semester:'',
+            room:props.datesheet ? props.datesheet.room:'',
+            // std:[],
+            // student:props.datesheet ? props.datesheet.student:[],
+            // studentnew:[],
             examDate:props.datesheet ? props.datesheet.examDate:'',
             startTime:props.datesheet ? props.datesheet.startTime:'',
             endTime:props.datesheet ? props.datesheet.endTime:'',
@@ -30,6 +34,8 @@ class DatesheetForm extends React.Component{
             department: this.state.department,
             subject:this.state.subject,
             semester:this.state.semester,
+            room:this.state.room,
+            student:this.state.student,
             examDate:this.state.examDate,
             startTime:this.state.startTime,
             endTime:this.state.endTime,
@@ -51,9 +57,18 @@ class DatesheetForm extends React.Component{
         else if(e.target.name==='department'){
             this.setState({
                 subjectnew:this.state.sub.filter(subject=>subject.deptId === e.target.value ),
+                // studentnew:this.state.std.filter(student=>student.deptId===e.target.value)
             })
             console.log('subjectnew', this.state.subjectnew) 
         }
+        // else if(e.target.name==='semester'){
+        //     this.setState((prevState)=>{
+        //         return{
+        //             subjectnew:prevState.sub.filter(subject=>subject.semId===e.target.value)
+        //         }
+        //     })
+            
+        // }
     }
     componentDidMount(){
         axios.get('/departments',{headers:{'x-auth':localStorage.getItem('authToken')}})
@@ -84,14 +99,34 @@ class DatesheetForm extends React.Component{
                         value: subject._id,
                         label: subject.subject_name,
                         deptId: subject.department._id,
+                        sem:subject.semester,
                     })
                 )
             })
             this.setState({sub})
         })
+
+        // axios.get('/students',{headers:{'x-auth':localStorage.getItem('authToken')}})
+        // .then(response=>{
+        //     const student = response.data
+        //     let std = []
+        //     student.map(student=>{
+        //         return (
+        //             std.push({
+        //                 id: student._id,
+        //                 value: student._id,
+        //                 label: student.name,
+        //                 deptId: student.department._id,
+        //                 sem:student.semester,
+        //             })
+        //         )
+        //     })
+        //     this.setState({std})
+        // })
     }
 
     render(){
+        console.log('datesheet',this.props)
         return(
             <div className="fluid-container" style={{height:"80%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
                 <Container >
@@ -127,23 +162,51 @@ class DatesheetForm extends React.Component{
                                 }
                         </Form.Control><br/><br/>
 
+                        <Form.Label htmlFor="semester">Semester:-</Form.Label>
+                        <Form.Control as='select' name='semester' id='semester' value={this.state.semester} onChange={this.handleChange}>
+                            <option value=''>----select----</option>
+                            {
+                                this.props.semester.map((sem)=>{
+                                    return <option value={sem._id} key={sem._id}>{sem.semester}</option>
+                                })
+                            }
+                        </Form.Control><br/><br/>
+
                         <Form.Label htmlFor="sname">Subject Name:-</Form.Label>     
                         <Form.Control as='select' name='subject' id='sname' value={this.state.subject} onChange={this.handleChange}>
                             <option value=''>----select----</option>
                             {
                                 this.state.subjectnew.map((subject)=>{
-                                    return <option value={subject.id} key={subject.id}>{subject.label}</option>
+                                    // console.log("subject semester",subject.sem,"semester",this.state.semester)
+                                    if(this.state.semester===subject.sem._id){
+                                        return <option value={subject.id} key={subject.id}>{subject.label}</option>
+                                    }
                                 })
                             }
                         </Form.Control><br/><br/>
 
-                        <Form.Label htmlFor="semester">Semester:-</Form.Label>
-                        <Form.Control 
-                            type="text"
-                            id="semester"
-                            name="semester"
-                            onChange={this.handleChange}
-                        /> <br/><br/>
+                        {/* <Form.Label htmlFor="stname">Student Name:-</Form.Label>     
+                        <Form.Control as='select' name='student' id='stname' value={this.state.student} onChange={this.handleChange}>
+                            <option value=''>----select----</option>
+                            {
+                                this.state.studentnew.map((student)=>{
+                                    // console.log("student semester",student.sem.semester,"semester",this.state.semester)
+                                    if(this.state.semester===student.sem._id){
+                                        return <option value={student.id} key={student.id}>{student.label}</option>
+                                    }
+                                })
+                            }
+                        </Form.Control><br/><br/> */}
+
+                        <Form.Label htmlFor="room">RoomNo:-</Form.Label>                   
+                        <Form.Control as='select' name='room' id='room' value={this.state.room} onChange={this.handleChange}>
+                            <option value=''>----select----</option>
+                            {
+                                this.props.room.map((room)=>{
+                                    return <option value={room._id} key={room._id}>{room.room}</option>
+                                })
+                            }
+                        </Form.Control><br/><br/>
 
                         <Form.Label htmlFor="examDate">Exam Date:-</Form.Label>
                         <Form.Control 
@@ -184,7 +247,10 @@ const mapStateToProps=(state)=>{
         course:state.course,
         department:state.department,
         subject:state.subject,
-        exam:state.exam
+        exam:state.exam,
+        room:state.room,
+        student:state.student,
+        semester:state.semester
     }
 }
 export default connect(mapStateToProps)(DatesheetForm)

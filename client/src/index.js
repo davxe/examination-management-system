@@ -13,6 +13,7 @@ import { startSetTeachers } from './actions/teacherAction'
 import { startSetStudents } from './actions/studentAction'
 import { startSetRooms } from './actions/roomAction'
 import { startSetDatesheets } from './actions/datesheetAction'
+import { startSetSemesters } from './actions/semesterAction'
 const store=configureStore()
 console.log(store.getState())
 
@@ -27,6 +28,7 @@ if(localStorage.getItem('authToken'))
     store.dispatch(startSetDepartments())
     store.dispatch(startSetSubjects())
     store.dispatch(startSetExams())
+    store.dispatch(startSetSemesters())
     store.dispatch(startSetTeachers())
     store.dispatch(startSetStudents())
     store.dispatch(startSetRooms())

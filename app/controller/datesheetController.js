@@ -1,7 +1,7 @@
 const Datesheet = require('../models/datesheet')
 
 module.exports.list = (req, res) => {
-    Datesheet.find({ user:req.user._id}).populate('course').populate('department').populate('subject').populate('exam')
+    Datesheet.find({ user:req.user._id}).populate('course').populate('department').populate('semester').populate('subject').populate('exam').populate('room').populate('student')
         .then((datesheet) => {
             res.json(datesheet)
         })
@@ -12,7 +12,7 @@ module.exports.list = (req, res) => {
 
 module.exports.show = (req, res) => {
     const id = req.params.id
-    Datesheet.findOne({_id:id,user:req.user._id}).populate('course').populate('department').populate('subject').populate('exam')
+    Datesheet.findOne({_id:id,user:req.user._id}).populate('course').populate('department').populate('semester').populate('subject').populate('exam').populate('room').populate('student')
         .then((datesheet) => {
             if (datesheet) {
                 res.json(datesheet)

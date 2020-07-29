@@ -13,7 +13,7 @@ class SubjectForm extends React.Component{
             department:props.subject ? props.subject.department:[],
             departmentnew:[],
             subject_name: props.subject ? props.subject.subject_name : '',
-            semester: props.subject ? props.department.semester:'',
+            semester: props.subject ? props.subject.semester:'',
             description: props.subject ? props.subject.description : '',
         }
     }
@@ -87,20 +87,23 @@ class SubjectForm extends React.Component{
                                     })
                                 }
                         </Form.Control><br/><br/>
+
+                        <Form.Label htmlFor="semester">Semester:-</Form.Label>
+                        <Form.Control as='select' name='semester' id='semester' value={this.state.semester} onChange={this.handleChange}>
+                            <option value=''>----select----</option>
+                            {
+                                this.props.semester.map((semester)=>{
+                                    return <option value={semester._id} key={semester._id}>{semester.semester}</option>
+                                })
+                            }
+                        </Form.Control><br/><br/>
+
                         <Form.Label htmlFor="name">Subject Name:-</Form.Label>
                         <Form.Control 
                             type="text"
                             id="name"
                             name="subject_name"
                             value={this.state.subject_name}
-                            onChange={this.handleChange}
-                        /> <br/><br/>
-                        <Form.Label htmlFor="semester">Semester:-</Form.Label>
-                        <Form.Control 
-                            type="text"
-                            id="semester"
-                            name="semester"
-                            value={this.state.semester}
                             onChange={this.handleChange}
                         /> <br/><br/>
                         <Form.Label htmlFor="description">description:-</Form.Label>
@@ -121,7 +124,8 @@ class SubjectForm extends React.Component{
 const mapStateToProps=(state)=>{
     return {
         course:state.course,
-        department:state.department
+        department:state.department,
+        semester:state.semester
     }
 }
 export default connect(mapStateToProps)(SubjectForm)

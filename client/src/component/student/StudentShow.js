@@ -10,7 +10,7 @@ function StudentShow(props){
             <h1 className='pt-5 pb-2'>Student Show</h1>
             <h2 className='mt-3'><b>Course Name:-</b>{props.student.course.course_name} </h2>
             <h2 className='mt-3'><b>Department Name:-</b>{props.student.department.department_name} </h2>
-            <h2 className='mt-3'><b>Semester:-</b>{props.student.semester} </h2>
+            <h2 className='mt-3'><b>Semester:-</b>{props.student.semester.semester} </h2>
             <h2 className='mt-3'><b>Student Name:-</b>{props.student.name}</h2>
             <h2 className='mt-3'><b>Fathers Name:-</b>{props.student.fathers_name} </h2>
             <h2 className='mt-3'><b>Address:-</b>{props.student.address}</h2>

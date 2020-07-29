@@ -9,6 +9,7 @@ import teacherReducer from '../reducers/teacherReducer'
 import studentReducer from '../reducers/studentReducer'
 import roomReducer from '../reducers/roomReducer'
 import datesheetReducer from '../reducers/datesheetReducer';
+import semesterReducer from '../reducers/semesterReducer';
 const configureStore=()=>{
     const store=createStore(combineReducers(
         {
@@ -17,6 +18,7 @@ const configureStore=()=>{
             department:departmentReducer,
             subject:subjectReducer,
             exam:examReducer,
+            semester:semesterReducer,
             teacher:teacherReducer,
             student:studentReducer,
             room:roomReducer,

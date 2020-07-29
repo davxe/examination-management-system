@@ -17,6 +17,11 @@ import AddDepartment from './component/department/AddDepartment'
 import DepartmentShow from './component/department/DepartmentShow'
 import EditDepartment from './component/department/EditDepartment'
 
+import SemesterList from './component/semester/SemesterList'
+import AddSemester from './component/semester/AddSemester'
+import SemesterShow from './component/semester/SemesterShow'
+import EditSemester from './component/semester/EditSemester'
+
 import SubjectList from './component/subject/SubjectList'
 import AddSubject from './component/subject/AddSubject'
 import SubjectShow from './component/subject/SubjectShow'
@@ -68,13 +73,14 @@ function App(props)
                                     <Nav.Link href={"/admins"} style={{color:'white'}}>Admin</Nav.Link>
                                     <Nav.Link href={"/courses"} style={{color:'white'}}>Course</Nav.Link>
                                     <Nav.Link href={"/departments"} style={{color:'white'}}>Department</Nav.Link>
+                                    <Nav.Link href={"/semesters"} style={{color:'white'}}>Semester</Nav.Link>
                                     <Nav.Link href={"/subjects"} style={{color:'white'}}>Subject</Nav.Link>
                                     <Nav.Link href={"/teachers"} style={{color:'white'}}>Teacher</Nav.Link>
                                     <Nav.Link href={"/students"} style={{color:'white'}}>Student</Nav.Link>
                                     <Nav.Link href={"/exams"} style={{color:'white'}}>Exam</Nav.Link>
                                     <Nav.Link href={"/datesheets"} style={{color:'white'}}>Datesheet</Nav.Link>
                                     <Nav.Link href={"/rooms"} style={{color:'white'}}>RoomNo</Nav.Link>
-                                    <Nav.Link href={"/seatingplans"} style={{color:'white'}}>SeatingPlan</Nav.Link>
+                                    {/* <Nav.Link href={"/seatingplans"} style={{color:'white'}}>SeatingPlan</Nav.Link> */}
                                     <Nav.Link to="#" onClick={handleLogout} style={{color:'white'}}>Logout</Nav.Link>
                                 </Nav>
                             </Navbar>
@@ -107,6 +113,11 @@ function App(props)
                     <Route path="/departments/add" component={AddDepartment} />
                     <Route path="/departments/:id" component={DepartmentShow} exact={true} />
                     <Route path="/departments/editdepartment/:id" component={EditDepartment} />
+
+                    <Route path="/semesters" component={SemesterList} exact={true} />
+                    <Route path="/semesters/add" component={AddSemester} />
+                    <Route path="/semesters/:id" component={SemesterShow} exact={true} />
+                    <Route path="/semesters/editsemester/:id" component={EditSemester} />
 
                     <Route path="/subjects" component={SubjectList} exact={true} />
                     <Route path="/subjects/add" component={AddSubject} />

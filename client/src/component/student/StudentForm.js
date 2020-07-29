@@ -13,7 +13,7 @@ class TeacherForm extends React.Component{
             department:props.student ? props.student.department:[],
             departmentnew:[],
             semester: props.student ? props.student.semester: '',
-            rill: props.student ? props.student.roll: '',
+            roll: props.student ? props.student.roll: '',
             name: props.student ? props.student.name:'',
             fathers_name: props.student ? props.student.fathers_name:'',
             gender:props.student ? props.student.gender:'',
@@ -122,13 +122,14 @@ class TeacherForm extends React.Component{
                         </Form.Control><br/><br/>
 
                         <Form.Label htmlFor="semester">Semester:-</Form.Label>
-                        <Form.Control
-                            type="text"
-                            id="semester"
-                            name="semester"
-                            value={this.state.semester}
-                            onChange={this.handleChange}
-                        /> <br/><br/>
+                        <Form.Control as='select' name='semester' id='semester' value={this.state.semester} onChange={this.handleChange}>
+                            <option value=''>----select----</option>
+                            {
+                                this.props.semester.map((semester)=>{
+                                    return <option value={semester._id} key={semester._id}>{semester.semester}</option>
+                                })
+                            }
+                        </Form.Control><br/><br/>
 
                         <Form.Label htmlFor="roll">Roll No:-:-</Form.Label>
                         <Form.Control
@@ -229,6 +230,7 @@ const mapStateToProps=(state)=>{
     return {
         course:state.course,
         department:state.department,
+        semester:state.semester
     }
 }
 export default connect(mapStateToProps)(TeacherForm)

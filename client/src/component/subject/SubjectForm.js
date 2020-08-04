@@ -69,52 +69,62 @@ class SubjectForm extends React.Component{
                 <Container >
                     <h1 className='pt-5 pb-2'>Add Subject</h1>
                     <Form onSubmit={this.handleSubmit}>
-                        <Form.Label htmlFor="cname">Course Name:-</Form.Label>                   
-                        <Form.Control as='select' name='course' id='cname' value={this.state.course} onChange={this.handleChange}>
-                            <option value=''>----select----</option>
-                            {
-                                this.props.course.map((course)=>{
-                                    return <option value={course._id} key={course._id}>{course.course_name}</option>
-                                })
-                            }
-                        </Form.Control><br/><br/>
-                        <Form.Label htmlFor="dname">Department Name:-</Form.Label>                   
-                        <Form.Control as='select' name='department' id='dname' value={this.state.department} onChange={this.handleChange}>
-                            <option value=''>----select----</option>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="cname">Course Name:-</Form.Label>                   
+                            <Form.Control as='select' name='course' id='cname' value={this.state.course} onChange={this.handleChange}>
+                                <option value=''>----select----</option>
                                 {
-                                    this.state.departmentnew.map((department)=>{
-                                        return <option value={department.id} key={department.id}>{department.label}</option>
+                                    this.props.course.map((course)=>{
+                                        return <option value={course._id} key={course._id}>{course.course_name}</option>
                                     })
                                 }
-                        </Form.Control><br/><br/>
-
-                        <Form.Label htmlFor="semester">Semester:-</Form.Label>
-                        <Form.Control as='select' name='semester' id='semester' value={this.state.semester} onChange={this.handleChange}>
-                            <option value=''>----select----</option>
-                            {
-                                this.props.semester.map((semester)=>{
-                                    return <option value={semester._id} key={semester._id}>{semester.semester}</option>
-                                })
-                            }
-                        </Form.Control><br/><br/>
-
-                        <Form.Label htmlFor="name">Subject Name:-</Form.Label>
-                        <Form.Control 
-                            type="text"
-                            id="name"
-                            name="subject_name"
-                            value={this.state.subject_name}
-                            onChange={this.handleChange}
-                        /> <br/><br/>
-                        <Form.Label htmlFor="description">description:-</Form.Label>
-                        <Form.Control as='textarea' rows="3"
-                            type="text"
-                            id="description"
-                            name="description"
-                            value={this.state.description}
-                            onChange={this.handleChange}
-                        /> <br/><br/>
-                        <input type="submit" value="Submit" className='btn btn-secondary'/>
+                            </Form.Control><br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="dname">Department Name:-</Form.Label>                   
+                            <Form.Control as='select' name='department' id='dname' value={this.state.department} onChange={this.handleChange}>
+                                <option value=''>----select----</option>
+                                    {
+                                        this.state.departmentnew.map((department)=>{
+                                            return <option value={department.id} key={department.id}>{department.label}</option>
+                                        })
+                                    }
+                            </Form.Control><br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="semester">Semester:-</Form.Label>
+                            <Form.Control as='select' name='semester' id='semester' value={this.state.semester} onChange={this.handleChange}>
+                                <option value=''>----select----</option>
+                                {
+                                    this.props.semester.map((semester)=>{
+                                        return <option value={semester._id} key={semester._id}>{semester.semester}</option>
+                                    })
+                                }
+                            </Form.Control><br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="name">Subject Name:-</Form.Label>
+                            <Form.Control 
+                                type="text"
+                                id="name"
+                                name="subject_name"
+                                value={this.state.subject_name}
+                                onChange={this.handleChange}
+                            /> <br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="description">description:-</Form.Label>
+                            <Form.Control as='textarea' rows="3"
+                                type="text"
+                                id="description"
+                                name="description"
+                                value={this.state.description}
+                                onChange={this.handleChange}
+                            /> <br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <input type="submit" value="Submit" className='btn btn-secondary'/>
+                        </div>
                     </Form>
                 </Container>
             </div>

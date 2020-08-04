@@ -62,6 +62,7 @@ router.put('/students/:id',authenticateUsers,studentController.update)
 router.delete('/students/:id',authenticateUsers,studentController.destroy)
 //datesheet
 router.get('/datesheets',authenticateUsers,datesheetController.list)
+router.post('/datesheets/send',datesheetController.send)
 router.post('/datesheets',authenticateUsers,datesheetController.create)
 router.get('/datesheets/:id',authenticateUsers,datesheetController.show)
 router.put('/datesheets/:id',authenticateUsers,datesheetController.update)

@@ -18,7 +18,7 @@ function EditDatesheet(props){
             
             {props.datesheet && (
                 <div>
-                    {props.datesheet.name && <DatesheetForm datesheet = {props.datesheet} handleEditSubmit = {handleEditSubmit} />}
+                    {props.datesheet.exam && <DatesheetForm datesheet = {props.datesheet} handleEditSubmit = {handleEditSubmit} />}
                 </div>
             )}
         </div>

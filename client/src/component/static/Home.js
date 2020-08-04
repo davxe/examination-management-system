@@ -106,7 +106,6 @@ function Home(props)
                 <div className='copyright'>
                     <h5 className="text-center pt-3">© 2020 - 2021, All rights reserved.</h5>
                 </div>
-
             </div>
         </div>
     )

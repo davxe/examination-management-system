@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import swal from 'sweetalert'
 export const setUser=(user)=>{
     return {type:'SET_USER',payload:user }
 }
@@ -11,11 +11,19 @@ export const startLoginUser=(loginData,redirect)=>{
             // console.log(response.data)
             if(response.data.hasOwnProperty('error'))
             {
-                alert(response.data.error)
+                swal({
+                    icon:'info',
+                    title:'Validation faled',
+                    text: `${response.data.error}`,
+                  });
             }
             else
             {
-                alert('login successfully')
+                swal({
+                    title: "Good job!",
+                    text: "login successfully",
+                    icon: "success",
+                });
                 localStorage.setItem('authToken',response.data.token)
                 axios.get('/users/accounts',{headers:{'authorization':localStorage.getItem('authToken')}})
                 .then((response)=>{
@@ -52,11 +60,19 @@ export const startRegisterUser=(formData,redirect)=>{
             // console.log(response.data)
             if(response.data.hasOwnProperty('errors'))
             {
-                alert(response.data.message)
+                swal({
+                    icon:'info',
+                    title:'Validation faled',
+                    text: `${response.data.error}`,
+                  });
             } 
             else
             {
-                alert('successfully registered')
+                swal({
+                    title: "Good job!",
+                    text: "Registered successfully",
+                    icon: "success",
+                });
                 // props.history.push('/users/login')
                 redirect()
             }

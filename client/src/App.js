@@ -70,7 +70,7 @@ function App(props)
                                 <Navbar.Brand href={"/"} style={{color:'white'}}>Examination Management</Navbar.Brand>
                                 <Nav className="ml-auto" >
                                     <Nav.Link href={"/"} style={{color:'white'}}>Home</Nav.Link>
-                                    <Nav.Link href={"/admins"} style={{color:'white'}}>Admin</Nav.Link>
+                                    {/* <Nav.Link href={"/admins"} style={{color:'white'}}>Admin</Nav.Link> */}
                                     <Nav.Link href={"/courses"} style={{color:'white'}}>Course</Nav.Link>
                                     <Nav.Link href={"/departments"} style={{color:'white'}}>Department</Nav.Link>
                                     <Nav.Link href={"/semesters"} style={{color:'white'}}>Semester</Nav.Link>
@@ -78,8 +78,8 @@ function App(props)
                                     <Nav.Link href={"/teachers"} style={{color:'white'}}>Teacher</Nav.Link>
                                     <Nav.Link href={"/students"} style={{color:'white'}}>Student</Nav.Link>
                                     <Nav.Link href={"/exams"} style={{color:'white'}}>Exam</Nav.Link>
-                                    <Nav.Link href={"/datesheets"} style={{color:'white'}}>Datesheet</Nav.Link>
                                     <Nav.Link href={"/rooms"} style={{color:'white'}}>RoomNo</Nav.Link>
+                                    <Nav.Link href={"/datesheets"} style={{color:'white'}}>Datesheet</Nav.Link>
                                     {/* <Nav.Link href={"/seatingplans"} style={{color:'white'}}>SeatingPlan</Nav.Link> */}
                                     <Nav.Link to="#" onClick={handleLogout} style={{color:'white'}}>Logout</Nav.Link>
                                 </Nav>

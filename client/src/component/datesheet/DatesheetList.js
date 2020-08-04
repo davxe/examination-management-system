@@ -28,7 +28,7 @@ function DatesheetList(props){
         
     }
     return(
-        <div className="fluid-container" style={{height:"600px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9 )"}}>
+        <div className="fluid-container" style={{height:"100%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9 )"}}>
             <Container>
                 <h1 className='pt-5 pb-2'>Datesheet - {props.datesheet.length} </h1>
                 <Table striped bordered hover responsive>
@@ -38,6 +38,7 @@ function DatesheetList(props){
                             <th>ExamName</th>
                             <th>CourseName</th>
                             <th>DepartmentName</th>
+                            <th>RoomNo.</th>
                             <th>Semester</th>
                             <th>SubjectName</th>
                             <th>ExamDate</th>
@@ -57,6 +58,7 @@ function DatesheetList(props){
                                         <td> {ele.exam.exam_name} </td>
                                         <td> {ele.course.course_name} </td>
                                         <td> {ele.department.department_name} </td>
+                                        <td> {ele.room.room} </td>
                                         <td> {ele.semester.semester} </td>
                                         <td> {ele.subject.subject_name} </td>
                                         <td> {moment(ele.examDate).format('L')} </td>

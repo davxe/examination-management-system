@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import swal from 'sweetalert'
 export const AddSubjects =(subject)=>{
     return {type:'ADD_SUBJECTS',payload:subject}
 }
@@ -8,10 +8,18 @@ export const startAddSubjects =(formData,redirect)=>{
         axios.post('/subjects',formData,{headers:{'x-auth':localStorage.getItem('authToken')}})
             .then((response)=>{
                 if(response.data.hasOwnProperty('errors')){
-                    alert(response.data.message)
+                    swal({
+                        icon:'info',
+                        title:'Validation faled',
+                        text: `${response.data.message}`,
+                      });
                 }
                 else{
-                    alert('successfully added')
+                    swal({
+                        title: "Good job!",
+                        text: "added successfully",
+                        icon: "success",
+                      });
                     const subject =response.data
                     redirect()
                     dispatch(AddSubjects(subject))
@@ -57,10 +65,18 @@ export const startEditSubject = (subject, redirect) => {
         axios.put(`/subjects/${subject.id}`, subject, {headers: {'x-auth': localStorage.getItem('authToken')}})
         .then((response) => {
             if(response.data.hasOwnProperty('errors')){
-                alert(response.data.message)
+                swal({
+                    icon:'info',
+                    title:'Validation faled',
+                    text: `${response.data.message}`,
+                  });
             }
             else{
-                alert('Updated successfully')
+                swal({
+                    title: "Good job!",
+                    text: "updated successfully",
+                    icon: "success",
+                  });
                 const subject = response.data 
                 dispatch(editSubject(subject))
                 redirect()

@@ -4,8 +4,28 @@ import { findDatesheet} from '../../selectors/datesheetSelector'
 import {Link} from 'react-router-dom'
 import { Container,Table,Button } from 'react-bootstrap'
 import moment from 'moment'
+import axios from 'axios'
 function DatesheetShow(props){
     console.log(props)
+    // const datesheet
+    const handleSend=(student)=>{
+        let recipent=student.mobile
+        let textmessage=`Hi ${student.roll}/${student.name} 
+        the datesheet for your exam - ${props.datesheet.exam.exam_name}
+        room no - ${props.datesheet.room.room} 
+        course - ${props.datesheet.course.course_name} department - ${props.datesheet.department.department_name}
+        subject - ${props.datesheet.subject.subject_name}
+        date - ${moment(props.datesheet.examDate).format('L')} 
+        and time from - ${props.datesheet.startTime} to - ${props.datesheet.endTime}
+        be ready for the exam 
+        wish you all the best 
+        (if already send please ignore )`
+        console.log("to",recipent)
+        console.log("message",textmessage)
+        axios.post(`/datesheets/send?recipent=${recipent}&textmessage=${textmessage}`)
+        .catch(err=>console.error(err))
+        // .then(response=>console.log(response.data))
+    }
     return (
         <Container>
             <h1 className='pt-5 pb-2'>Datesheet Show</h1>
@@ -23,6 +43,7 @@ function DatesheetShow(props){
                             <th>RollNo:-</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Department</th>
                             <th>Semester</th>
                             <th>Gender</th>
                             <th>DOB</th>
@@ -33,18 +54,19 @@ function DatesheetShow(props){
                     <tbody>
                         {
                             props.student.map((ele,i) => {
-                                if(ele.semester.semester===props.datesheet.semester.semester){
+                                if((ele.semester.semester===props.datesheet.semester.semester) && (ele.department.department_name===props.datesheet.department.department_name)){
                                     return (
                                         <tr key={i}>
                                             <td>{i+1}</td>
                                             <td> {ele.roll} </td>
                                             <td> {ele.name} </td>
                                             <td> {ele.email} </td>
+                                            <td> {ele.department.department_name} </td>
                                             <td> {ele.semester.semester} </td>
                                             <td> {ele.gender} </td>
                                             <td> {moment(ele.dob).format('L')} </td>
                                             <td> {ele.mobile} </td>
-                                            <td><Button className='btn btn-info'>send</Button></td>
+                                            <td><Button onClick={ () => handleSend(ele)} className='btn btn-info'>send</Button></td>
                                         </tr>
                                     )
                                 }

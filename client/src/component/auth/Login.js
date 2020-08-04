@@ -45,7 +45,6 @@ class Login extends React.Component
                                     <input type="password" name="password" placeholder="Enter Password" className="form-control" value={this.state.password} onChange={this.handleChange}/>
                                 </div>
                                 <div className="container form-group">
-                                    <input type="checkbox"/> Remember me <br/><br/>
                                     <input type="submit" value="Login" className="form-control btn btn-primary"/>
                                 </div>
                             </form>

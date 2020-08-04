@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import swal from 'sweetalert'
 export const AddStudents =(student)=>{
     return {type:'ADD_STUDENTS',payload:student}
 }
@@ -8,10 +8,18 @@ export const startAddStudents =(formData,redirect)=>{
         axios.post('/students',formData,{headers:{'x-auth':localStorage.getItem('authToken')}})
             .then((response)=>{
                 if(response.data.hasOwnProperty('errors')){
-                    alert(response.data.message)
+                    swal({
+                        icon:'info',
+                        title:'Validation faled',
+                        text: `${response.data.message}`,
+                      });
                 }
                 else{
-                    alert('successfully added')
+                    swal({
+                        title: "Good job!",
+                        text: "added successfully",
+                        icon: "success",
+                      });
                     const student =response.data
                     redirect()
                     dispatch(AddStudents(student))
@@ -57,10 +65,18 @@ export const startEditStudent = (student, redirect) => {
         axios.put(`/students/${student.id}`, student, {headers: {'x-auth': localStorage.getItem('authToken')}})
         .then((response) => {
             if(response.data.hasOwnProperty('errors')){
-                alert(response.data.message)
+                swal({
+                    icon:'info',
+                    title:'Validation faled',
+                    text: `${response.data.message}`,
+                  });
             }
             else{
-                alert('Updated successfully')
+                swal({
+                    title: "Good job!",
+                    text: "updated successfully",
+                    icon: "success",
+                  });
                 const student = response.data 
                 dispatch(editStudent(student))
                 redirect()

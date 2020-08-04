@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import swal from 'sweetalert'
 export const AddCourses =(course)=>{
     return {type:'ADD_COURSES',payload:course}
 }
@@ -8,10 +8,20 @@ export const startAddCourses =(formData,redirect)=>{
         axios.post('/courses',formData,{headers:{'x-auth':localStorage.getItem('authToken')}})
             .then((response)=>{
                 if(response.data.hasOwnProperty('errors')){
-                    alert(response.data.message)
+                    // alert(response.data.message)
+                    swal({
+                        icon:'info',
+                        title:'Validation faled',
+                        text: `${response.data.message}`,
+                      });
                 }
                 else{
-                    alert('successfully added')
+                    // alert('successfully added')
+                    swal({
+                        title: "Good job!",
+                        text: "added successfully",
+                        icon: "success",
+                      });
                     const course =response.data
                     redirect()
                     dispatch(AddCourses(course))
@@ -57,10 +67,18 @@ export const startEditCourse = (course, redirect) => {
         axios.put(`/courses/${course.id}`, course, {headers: {'x-auth': localStorage.getItem('authToken')}})
         .then((response) => {
             if(response.data.hasOwnProperty('errors')){
-                alert(response.data.message)
+                swal({
+                    icon:'info',
+                    title:'Validation faled',
+                    text: `${response.data.message}`,
+                  });
             }
             else{
-                alert('Updated successfully')
+                swal({
+                    title: "Good job!",
+                    text: "added successfully",
+                    icon: "success",
+                  });
                 const course = response.data 
                 dispatch(editCourse(course))
                 redirect()

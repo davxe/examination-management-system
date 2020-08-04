@@ -118,111 +118,127 @@ class TeacherForm extends React.Component{
 
     render(){
         return(
-            <div className="fluid-container" style={{height:"80%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
+            <div className="fluid-container" style={{height:"100%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
                 <Container >
                     <h1 className='pt-5 pb-2'>Add Teacher</h1>
                     <Form onSubmit={this.handleSubmit}>
-                        <Form.Label htmlFor="cname">Course Name:-</Form.Label>                   
-                        <Form.Control as='select' name='course' id='cname' value={this.state.course} onChange={this.handleChange}>
-                            <option value=''>----select----</option>
-                            {
-                                this.props.course.map((course)=>{
-                                    return <option value={course._id} key={course._id}>{course.course_name}</option>
-                                })
-                            }
-                        </Form.Control><br/><br/>
-
-                        <Form.Label htmlFor="dname">Department Name:-</Form.Label>                   
-                        <Form.Control as='select' name='department' id='dname' value={this.state.department} onChange={this.handleChange}>
-                            <option value=''>----select----</option>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="cname">Course Name:-</Form.Label>                   
+                            <Form.Control as='select' name='course' id='cname' value={this.state.course} onChange={this.handleChange}>
+                                <option value=''>----select----</option>
                                 {
-                                    this.state.departmentnew.map((department)=>{
-                                        return <option value={department.id} key={department.id}>{department.label}</option>
+                                    this.props.course.map((course)=>{
+                                        return <option value={course._id} key={course._id}>{course.course_name}</option>
                                     })
                                 }
-                        </Form.Control><br/><br/>
-
-                        <Form.Label htmlFor="sname">Subject Name:-</Form.Label>     
-                        <Form.Control as='select' name='subject' id='sname' value={this.state.subject} onChange={this.handleChange}>
-                            <option value=''>----select----</option>
-                            {
-                                this.state.subjectnew.map((subject)=>{
-                                    return <option value={subject.id} key={subject.id}>{subject.label}</option>
-                                })
-                            }
-                        </Form.Control><br/><br/>
-
-                        <Form.Label htmlFor="name">Name:-</Form.Label>
-                        <Form.Control 
-                            type="text"
-                            id="name"
-                            name="name"
-                            onBlur={this.handleChangeName}
-                        /> <br/><br/>
-
-                        <Form.Label htmlFor="email">Email:-</Form.Label>
-                        <Form.Control 
-                            type="text"
-                            id="email"
-                            name="email"
-                            value={this.state.email}
-                            onFocus={this.handleChangeEmail}
-                            onChange={this.handleChange}
-                        /> <br/><br/>
-
-                        <Form.Label>Gender:-</Form.Label>
-                        <Form.Check inline label='Male'
-                            type="radio"
-                            id="male"
-                            name="gender"
-                            checked={this.state.gender==='male'}
-                            onChange={()=>{this.handleRadioChange('male')}}
-                        />
-                        <Form.Check inline label='Female'
-                            type="radio"
-                            id="female"
-                            name="gender"
-                            checked={this.state.gender==='female'}
-                            onChange={()=>{this.handleRadioChange('female')}}
-                        /> <br/><br/>
-
-                        <Form.Label htmlFor="dob">DOB:-</Form.Label>
-                        <Form.Control
-                            type="date"
-                            id="dob"
-                            name="dob"
-                            value={this.state.dob}
-                            onChange={this.handleChange}
-                        /> <br/><br/>
-
-                        <Form.Label htmlFor="qualification">Qualification:-</Form.Label>
-                        <Form.Control
-                            type="text"
-                            id="qualification"
-                            name="qualification"
-                            value={this.state.qualification}
-                            onChange={this.handleChange}
-                        /> <br/><br/>
-
-                        <Form.Label htmlFor="experience">Experience:-</Form.Label>
-                        <Form.Control
-                            type="text"
-                            id="experience"
-                            name="experience"
-                            value={this.state.experience}
-                            onChange={this.handleChange}
-                        /> <br/><br/>
-
-                        <Form.Label htmlFor="mobile">Mobile:-</Form.Label>
-                        <Form.Control
-                            type="text"
-                            id="mobile"
-                            name="mobile"
-                            value={this.state.mobile}
-                            onChange={this.handleChange}
-                        /> <br/><br/>
-
-                        <input type="submit" value="Submit" className='btn btn-secondary'/>
+                            </Form.Control><br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="dname">Department Name:-</Form.Label>                   
+                            <Form.Control as='select' name='department' id='dname' value={this.state.department} onChange={this.handleChange}>
+                                <option value=''>----select----</option>
+                                    {
+                                        this.state.departmentnew.map((department)=>{
+                                            return <option value={department.id} key={department.id}>{department.label}</option>
+                                        })
+                                    }
+                            </Form.Control><br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="sname">Subject Name:-</Form.Label>     
+                            <Form.Control as='select' name='subject' id='sname' value={this.state.subject} onChange={this.handleChange}>
+                                <option value=''>----select----</option>
+                                {
+                                    this.state.subjectnew.map((subject)=>{
+                                        return <option value={subject.id} key={subject.id}>{subject.label}</option>
+                                    })
+                                }
+                            </Form.Control><br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="name">Name:-</Form.Label>
+                            <Form.Control 
+                                type="text"
+                                id="name"
+                                name="name"
+                                onBlur={this.handleChangeName}
+                            /> <br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="email">Email:-</Form.Label>
+                            <Form.Control 
+                                type="text"
+                                id="email"
+                                name="email"
+                                value={this.state.email}
+                                onFocus={this.handleChangeEmail}
+                                onChange={this.handleChange}
+                            /> <br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <div className='container gender'>
+                                <Form.Label>Gender:-</Form.Label>
+                                <Form.Check inline label='Male'
+                                    type="radio"
+                                    id="male"
+                                    name="gender"
+                                    checked={this.state.gender==='male'}
+                                    onChange={()=>{this.handleRadioChange('male')}}
+                                />
+                            </div>
+                            <div className='container gender'>
+                                <Form.Check inline label='Female'
+                                    type="radio"
+                                    id="female"
+                                    name="gender"
+                                    checked={this.state.gender==='female'}
+                                    onChange={()=>{this.handleRadioChange('female')}}
+                                /> <br/><br/>
+                            </div>
+                        </div>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="dob">DOB:-</Form.Label>
+                            <Form.Control
+                                type="date"
+                                id="dob"
+                                name="dob"
+                                value={this.state.dob}
+                                onChange={this.handleChange}
+                            /> <br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="qualification">Qualification:-</Form.Label>
+                            <Form.Control
+                                type="text"
+                                id="qualification"
+                                name="qualification"
+                                value={this.state.qualification}
+                                onChange={this.handleChange}
+                            /> <br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="experience">Experience:-</Form.Label>
+                            <Form.Control
+                                type="text"
+                                id="experience"
+                                name="experience"
+                                value={this.state.experience}
+                                onChange={this.handleChange}
+                            /> <br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="mobile">Mobile:-</Form.Label>
+                            <Form.Control
+                                type="text"
+                                id="mobile"
+                                name="mobile"
+                                value={this.state.mobile}
+                                onChange={this.handleChange}
+                            /> <br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <input type="submit" value="Submit" className='btn btn-secondary'/>
+                        </div>
                     </Form>
                 </Container>
             </div>

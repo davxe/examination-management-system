@@ -128,114 +128,118 @@ class DatesheetForm extends React.Component{
     render(){
         console.log('datesheet',this.props)
         return(
-            <div className="fluid-container" style={{height:"80%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
+            <div className="fluid-container" style={{height:"100%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
                 <Container >
                     <h1 className='pt-5 pb-2'>Add Datesheet</h1>
                     <Form onSubmit={this.handleSubmit}>
-                        <Form.Label htmlFor="ename">Exam Name:-</Form.Label>                   
-                        <Form.Control as='select' name='exam' id='ename' value={this.state.exam} onChange={this.handleChange}>
-                            <option value=''>----select----</option>
-                            {
-                                this.props.exam.map((exam)=>{
-                                    return <option value={exam._id} key={exam._id}>{exam.exam_name}</option>
-                                })
-                            }
-                        </Form.Control><br/><br/>
-
-                        <Form.Label htmlFor="cname">Course Name:-</Form.Label>                   
-                        <Form.Control as='select' name='course' id='cname' value={this.state.course} onChange={this.handleChange}>
-                            <option value=''>----select----</option>
-                            {
-                                this.props.course.map((course)=>{
-                                    return <option value={course._id} key={course._id}>{course.course_name}</option>
-                                })
-                            }
-                        </Form.Control><br/><br/>
-
-                        <Form.Label htmlFor="dname">Department Name:-</Form.Label>                   
-                        <Form.Control as='select' name='department' id='dname' value={this.state.department} onChange={this.handleChange}>
-                            <option value=''>----select----</option>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="ename">Exam Name:-</Form.Label>                   
+                            <Form.Control as='select' name='exam' id='ename' value={this.state.exam} onChange={this.handleChange}>
+                                <option value=''>----select----</option>
                                 {
-                                    this.state.departmentnew.map((department)=>{
-                                        return <option value={department.id} key={department.id}>{department.label}</option>
+                                    this.props.exam.map((exam)=>{
+                                        return <option value={exam._id} key={exam._id}>{exam.exam_name}</option>
                                     })
                                 }
-                        </Form.Control><br/><br/>
+                            </Form.Control><br/><br/>
+                        </div>  
 
-                        <Form.Label htmlFor="semester">Semester:-</Form.Label>
-                        <Form.Control as='select' name='semester' id='semester' value={this.state.semester} onChange={this.handleChange}>
-                            <option value=''>----select----</option>
-                            {
-                                this.props.semester.map((sem)=>{
-                                    return <option value={sem._id} key={sem._id}>{sem.semester}</option>
-                                })
-                            }
-                        </Form.Control><br/><br/>
-
-                        <Form.Label htmlFor="sname">Subject Name:-</Form.Label>     
-                        <Form.Control as='select' name='subject' id='sname' value={this.state.subject} onChange={this.handleChange}>
-                            <option value=''>----select----</option>
-                            {
-                                this.state.subjectnew.map((subject)=>{
-                                    // console.log("subject semester",subject.sem,"semester",this.state.semester)
-                                    if(this.state.semester===subject.sem._id){
-                                        return <option value={subject.id} key={subject.id}>{subject.label}</option>
+                        <div className="container form-group">          
+                            <Form.Label htmlFor="cname">Course Name:-</Form.Label>                   
+                            <Form.Control as='select' name='course' id='cname' value={this.state.course} onChange={this.handleChange}>
+                                <option value=''>----select----</option>
+                                {
+                                    this.props.course.map((course)=>{
+                                        return <option value={course._id} key={course._id}>{course.course_name}</option>
+                                    })
+                                }
+                            </Form.Control><br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="dname">Department Name:-</Form.Label>                   
+                            <Form.Control as='select' name='department' id='dname' value={this.state.department} onChange={this.handleChange}>
+                                <option value=''>----select----</option>
+                                    {
+                                        this.state.departmentnew.map((department)=>{
+                                            return <option value={department.id} key={department.id}>{department.label}</option>
+                                        })
                                     }
-                                })
-                            }
-                        </Form.Control><br/><br/>
+                            </Form.Control><br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="semester">Semester:-</Form.Label>
+                            <Form.Control as='select' name='semester' id='semester' value={this.state.semester} onChange={this.handleChange}>
+                                <option value=''>----select----</option>
+                                {
+                                    this.props.semester.map((sem)=>{
+                                        return <option value={sem._id} key={sem._id}>{sem.semester}</option>
+                                    })
+                                }
+                            </Form.Control><br/><br/>
+                        </div>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="sname">Subject Name:-</Form.Label>     
+                            <Form.Control as='select' name='subject' id='sname' value={this.state.subject} onChange={this.handleChange}>
+                                <option value=''>----select----</option>
+                                {
+                                    this.state.subjectnew.map((subject)=>{
+                                        // console.log("subject semester",subject.sem,"semester",this.state.semester)
+                                        if(this.state.semester===subject.sem._id){
+                                            return <option value={subject.id} key={subject.id}>{subject.label}</option>
+                                        }
+                                    })
+                                }
+                            </Form.Control><br/><br/>
+                        </div>        
 
-                        {/* <Form.Label htmlFor="stname">Student Name:-</Form.Label>     
-                        <Form.Control as='select' name='student' id='stname' value={this.state.student} onChange={this.handleChange}>
-                            <option value=''>----select----</option>
-                            {
-                                this.state.studentnew.map((student)=>{
-                                    // console.log("student semester",student.sem.semester,"semester",this.state.semester)
-                                    if(this.state.semester===student.sem._id){
-                                        return <option value={student.id} key={student.id}>{student.label}</option>
-                                    }
-                                })
-                            }
-                        </Form.Control><br/><br/> */}
+                        <div className="container form-group">
+                            <Form.Label htmlFor="room">RoomNo:-</Form.Label>                   
+                            <Form.Control as='select' name='room' id='room' value={this.state.room} onChange={this.handleChange}>
+                                <option value=''>----select----</option>
+                                {
+                                    this.props.room.map((room)=>{
+                                        return <option value={room._id} key={room._id}>{room.room}</option>
+                                    })
+                                }
+                            </Form.Control><br/><br/>
+                        </div>
 
-                        <Form.Label htmlFor="room">RoomNo:-</Form.Label>                   
-                        <Form.Control as='select' name='room' id='room' value={this.state.room} onChange={this.handleChange}>
-                            <option value=''>----select----</option>
-                            {
-                                this.props.room.map((room)=>{
-                                    return <option value={room._id} key={room._id}>{room.room}</option>
-                                })
-                            }
-                        </Form.Control><br/><br/>
+                        <div className="container form-group">        
+                            <Form.Label htmlFor="examDate">Exam Date:-</Form.Label>
+                            <Form.Control 
+                                type="Date"
+                                id="examDate"
+                                name="examDate"
+                                value={this.state.examDate}
+                                onChange={this.handleChange}
+                            /> <br/><br/>
+                        </div>
 
-                        <Form.Label htmlFor="examDate">Exam Date:-</Form.Label>
-                        <Form.Control 
-                            type="Date"
-                            id="examDate"
-                            name="examDate"
-                            value={this.state.examDate}
-                            onChange={this.handleChange}
-                        /> <br/><br/>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="stime">StartTime:-</Form.Label>
+                            <Form.Control
+                                type="time"
+                                id="stime"
+                                name="startTime"
+                                value={this.state.startTime}
+                                onChange={this.handleChange}
+                            /> <br/><br/>
+                        </div>
 
-                        <Form.Label htmlFor="stime">StartTime:-</Form.Label>
-                        <Form.Control
-                            type="time"
-                            id="stime"
-                            name="startTime"
-                            value={this.state.startTime}
-                            onChange={this.handleChange}
-                        /> <br/><br/>
+                        <div className="container form-group">
+                            <Form.Label htmlFor="endTime">EndTime:-</Form.Label>
+                            <Form.Control
+                                type="time"
+                                id="endTime"
+                                name="endTime"
+                                value={this.state.endTime}
+                                onChange={this.handleChange}
+                            /> <br/><br/>
+                        </div>
 
-                        <Form.Label htmlFor="endTime">EndTime:-</Form.Label>
-                        <Form.Control
-                            type="time"
-                            id="endTime"
-                            name="endTime"
-                            value={this.state.endTime}
-                            onChange={this.handleChange}
-                        /> <br/><br/>
-
-                        <input type="submit" value="Submit" className='btn btn-secondary'/>
+                        <div className="container form-group">
+                            <input type="submit" value="Submit" className='btn btn-secondary'/>
+                        </div>
                     </Form>
                 </Container>
             </div>

@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import swal from 'sweetalert'
 export const AddRooms =(room)=>{
     return {type:'ADD_ROOMS',payload:room}
 }
@@ -8,10 +8,18 @@ export const startAddRooms =(formData,redirect)=>{
         axios.post('/rooms',formData,{headers:{'x-auth':localStorage.getItem('authToken')}})
             .then((response)=>{
                 if(response.data.hasOwnProperty('errors')){
-                    alert(response.data.message)
+                    swal({
+                        icon:'info',
+                        title:'Validation faled',
+                        text: `${response.data.message}`,
+                      });
                 }
                 else{
-                    alert('successfully added')
+                    swal({
+                        title: "Good job!",
+                        text: "added successfully",
+                        icon: "success",
+                      });
                     const room =response.data
                     redirect()
                     dispatch(AddRooms(room))
@@ -57,10 +65,18 @@ export const startEditRoom = (room, redirect) => {
         axios.put(`/rooms/${room.id}`, room, {headers: {'x-auth': localStorage.getItem('authToken')}})
         .then((response) => {
             if(response.data.hasOwnProperty('errors')){
-                alert(response.data.message)
+                swal({
+                    icon:'info',
+                    title:'Validation faled',
+                    text: `${response.data.message}`,
+                  });
             }
             else{
-                alert('Updated successfully')
+                swal({
+                    title: "Good job!",
+                    text: "updated successfully",
+                    icon: "success",
+                  });
                 const room = response.data 
                 dispatch(editRoom(room))
                 redirect()

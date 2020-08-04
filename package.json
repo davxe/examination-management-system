@@ -13,7 +13,7 @@
   "engines": {
     "node": "^10.3.0",
     "npm": "^6.8.0"
-    },
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -25,6 +25,7 @@
     "moment": "^2.27.0",
     "mongoose": "^5.9.21",
     "path": "^0.12.7",
+    "twilio": "^3.48.1",
     "validator": "^13.1.1"
   }
 }

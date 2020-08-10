@@ -176,25 +176,21 @@ class TeacherForm extends React.Component{
                             /> <br/><br/>
                         </div>
                         <div className="container form-group">
-                            <div className='container gender'>
-                                <Form.Label>Gender:-</Form.Label>
-                                <Form.Check inline label='Male'
-                                    type="radio"
-                                    id="male"
-                                    name="gender"
-                                    checked={this.state.gender==='male'}
-                                    onChange={()=>{this.handleRadioChange('male')}}
-                                />
-                            </div>
-                            <div className='container gender'>
-                                <Form.Check inline label='Female'
-                                    type="radio"
-                                    id="female"
-                                    name="gender"
-                                    checked={this.state.gender==='female'}
-                                    onChange={()=>{this.handleRadioChange('female')}}
-                                /> <br/><br/>
-                            </div>
+                            <Form.Label>Gender:-</Form.Label>
+                            <Form.Check inline label='Male'
+                                type="radio"
+                                id="male"
+                                name="gender"
+                                checked={this.state.gender==='male'}
+                                onChange={()=>{this.handleRadioChange('male')}}
+                            />
+                            <Form.Check inline label='Female'
+                                type="radio"
+                                id="female"
+                                name="gender"
+                                checked={this.state.gender==='female'}
+                                onChange={()=>{this.handleRadioChange('female')}}
+                            /> <br/><br/>
                         </div>
                         <div className="container form-group">
                             <Form.Label htmlFor="dob">DOB:-</Form.Label>

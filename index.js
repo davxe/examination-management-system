@@ -11,7 +11,7 @@ configureDB()
 
 app.use(express.json())
 app.use(cors())
-app.use('/',routes)
+app.use('/api',routes)
 
 app.use(express.static(path.join(__dirname,"client/build")))
 app.get("*",(req,res) => {

@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Container, Form} from 'react-bootstrap'
 import axios from 'axios'
 
-class TeacherForm extends React.Component{
+class StudentForm extends React.Component{
 
     constructor(props){
         super(props)
@@ -164,25 +164,21 @@ class TeacherForm extends React.Component{
                             /> <br/><br/>
                         </div>
                         <div className="container form-group">
-                            <div className="container gernder">
-                                <Form.Label>Gender:-</Form.Label>
-                                <Form.Check inline label='Male'
-                                    type="radio"
-                                    id="male"
-                                    name="gender"
-                                    checked={this.state.gender==='male'}
-                                    onChange={()=>{this.handleRadioChange('male')}}
-                                />
-                            </div>
-                            <div className='container gender'>
-                                <Form.Check inline label='Female'
-                                    type="radio"
-                                    id="female"
-                                    name="gender"
-                                    checked={this.state.gender==='female'}
-                                    onChange={()=>{this.handleRadioChange('female')}}
-                                /> <br/><br/>
-                            </div>
+                            <Form.Label>Gender:-</Form.Label>
+                            <Form.Check inline label='Male'
+                                type="radio"
+                                id="male"
+                                name="gender"
+                                checked={this.state.gender==='male'}
+                                onChange={()=>{this.handleRadioChange('male')}}
+                            />
+                            <Form.Check inline label='Female'
+                                type="radio"
+                                id="female"
+                                name="gender"
+                                checked={this.state.gender==='female'}
+                                onChange={()=>{this.handleRadioChange('female')}}
+                            /> <br/><br/>
                         </div>
                         <div className="container form-group">
                             <Form.Label htmlFor="dob">DOB:-</Form.Label>
@@ -250,4 +246,4 @@ const mapStateToProps=(state)=>{
         semester:state.semester
     }
 }
-export default connect(mapStateToProps)(TeacherForm)
+export default connect(mapStateToProps)(StudentForm)

@@ -1,10 +1,10 @@
 import React from 'react'
-import image1 from './image1.jpg'
-import image2 from './image2.jpg'
-import image3 from './image3.jpg'
-import image5 from './image5.jpg'
-import image6 from './image6.jpg'
-import image7 from './image7.jpg'
+import image11 from './image11.jpg'
+import image22 from './image22.jpg'
+import image33 from './image33.jpg'
+import image44 from './image44.jpg'
+import image55 from './image55.jpg'
+import image66 from './image66.jpg'
 import Carousel from 'react-bootstrap/Carousel'
 import {CardDeck,Card} from 'react-bootstrap'
 import moment from 'moment'
@@ -18,7 +18,7 @@ function Home(props)
                     <Carousel.Item>
                     <div className="d-block justify-content-center">
                             <img
-                                src={image3}
+                                src={image11}
                                 alt="Third slide"
                                 width='100%'
                                 height='650'
@@ -32,7 +32,7 @@ function Home(props)
                     <Carousel.Item>
                     <div className="d-block justify-content-center">
                             <img
-                                src={image2}
+                                src={image22}
                                 alt="Third slide"
                                 width='100%'
                                 height='650'
@@ -46,7 +46,7 @@ function Home(props)
                     <Carousel.Item>
                         <div className="d-block justify-content-center">
                             <img
-                                src={image1}
+                                src={image66}
                                 alt="Third slide"
                                 width='100%'
                                 height='650'
@@ -63,7 +63,7 @@ function Home(props)
             <div className='card'>
                 <CardDeck>
                     <Card>
-                        <Card.Img variant="top" src={image5} width='50px' height='160px'/>
+                        <Card.Img variant="top" src={image33} width='50px' height='160px'/>
                         <Card.Body>
                             <Card.Title style={{fontFamily:'arial'}}><b>Good Luck On Your Exam!</b></Card.Title>
                             <Card.Text>
@@ -77,7 +77,7 @@ function Home(props)
                         </Card.Footer>
                     </Card>
                     <Card>
-                        <Card.Img variant="top" src={image6} width='50' height='160' />
+                        <Card.Img variant="top" src={image44} width='50' height='160' />
                         <Card.Body>
                             <Card.Title><b>Quotes</b></Card.Title>
                             <Card.Text>
@@ -89,7 +89,7 @@ function Home(props)
                         </Card.Footer>
                     </Card>
                     <Card>
-                        <Card.Img variant="top" src={image7} width='50' height='160'/>
+                        <Card.Img variant="top" src={image55} width='50' height='160'/>
                         <Card.Body>
                             <Card.Title><b>Quotes</b></Card.Title>
                             <Card.Text>
@@ -106,6 +106,7 @@ function Home(props)
                 <div className='copyright'>
                     <h5 className="text-center pt-3">© 2020 - 2021, All rights reserved.</h5>
                 </div>
+
             </div>
         </div>
     )

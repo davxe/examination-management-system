@@ -20,7 +20,7 @@ export const startLoginUser=(loginData,redirect)=>{
             else
             {
                 swal({
-                    title: "Good job!",
+                    title: "Welcome",
                     text: "login successfully",
                     icon: "success",
                 });
@@ -69,7 +69,7 @@ export const startRegisterUser=(formData,redirect)=>{
             else
             {
                 swal({
-                    title: "Good job!",
+                    title: "Thank you for Registering",
                     text: "Registered successfully",
                     icon: "success",
                 });

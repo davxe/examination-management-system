@@ -61,7 +61,7 @@ module.exports.destroy = (req, res) => {
 }
 module.exports.send=(req,res)=>{
     const accountSid='AC4ffe75d8250501ad09ed271e26ac772f'
-    const authToken ='516c40f3f6d55f66416b8b77044c570a'
+    const authToken ='510847ce3a0ff465e13c294fb226693d'
     const client =require('twilio')(accountSid,authToken);
     
     const {recipent,textmessage} = req.query
@@ -69,7 +69,7 @@ module.exports.send=(req,res)=>{
     client.messages.create({
         body:textmessage,
         from:'+12029320920',
-        to:`+${recipent}`,
+        to:`${recipent}`,
     }).then((message)=>console.log(message.sid))
     console.log("to",recipent,"message",textmessage)
 }

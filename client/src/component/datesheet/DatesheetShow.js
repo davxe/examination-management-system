@@ -4,7 +4,7 @@ import { findDatesheet} from '../../selectors/datesheetSelector'
 import {Link} from 'react-router-dom'
 import { Container,Table,Button } from 'react-bootstrap'
 import moment from 'moment'
-import axios from 'axios'
+import axios from '../../config/axios'
 function DatesheetShow(props){
     console.log(props)
     // const datesheet

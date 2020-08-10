@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../config/axios'
 import swal from 'sweetalert'
 export const AddSemesters =(semester)=>{
     return {type:'ADD_SEMESTERS',payload:semester}

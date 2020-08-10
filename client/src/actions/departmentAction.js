@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../config/axios'
 import swal from 'sweetalert'
 export const AddDepartments =(department)=>{
     return {type:'ADD_DEPARTMENTS',payload:department}

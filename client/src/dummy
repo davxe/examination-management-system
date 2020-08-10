@@ -1,70 +1,4 @@
-import React from 'react'
-import {BrowserRouter,Route,Switch,Link} from 'react-router-dom'
-import {connect} from 'react-redux'
-
-import Home from './component/static/Home'
-import Login from './component/auth/Login'
-import Register from './component/auth/Register'
-import { startUserLogout } from './actions/userAction'
-
-import CourseList from './component/course/CourseList'
-import AddCourse from './component/course/AddCourse'
-import CourseShow from './component/course/CourseShow'
-import EditCourse from './component/course/EditCourse'
-
-import DepartmentList from './component/department/DepartmentList'
-import AddDepartment from './component/department/AddDepartment'
-import DepartmentShow from './component/department/DepartmentShow'
-import EditDepartment from './component/department/EditDepartment'
-
-import SemesterList from './component/semester/SemesterList'
-import AddSemester from './component/semester/AddSemester'
-import SemesterShow from './component/semester/SemesterShow'
-import EditSemester from './component/semester/EditSemester'
-
-import SubjectList from './component/subject/SubjectList'
-import AddSubject from './component/subject/AddSubject'
-import SubjectShow from './component/subject/SubjectShow'
-import EditSubject from './component/subject/EditSubject'
-
-import ExamList from './component/exam/ExamList'
-import AddExam from './component/exam/AddExam'
-import ExamShow from './component/exam/ExamShow'
-import EditExam from './component/exam/EditExam'
-
-import TeacherList from './component/teacher/TeacherList'
-import AddTeacher from './component/teacher/AddTeacher'
-import TeacherShow from './component/teacher/TeacherShow'
-import EditTeacher from './component/teacher/EditTeacher'
-
-import StudentList from './component/student/StudentList'
-import AddStudent from './component/student/AddStudent'
-import StudentShow from './component/student/StudentShow'
-import EditStudent from './component/student/EditStudent'
-
-import RoomList from './component/room/RoomList'
-import AddRoom from './component/room/AddRoom'
-import RoomShow from './component/room/RoomShow'
-import EditRoom from './component/room/EditRoom'
-
-import DatesheetList from './component/datesheet/DatesheetList'
-import AddDatesheet from './component/datesheet/AddDatesheet'
-import DatesheetShow from './component/datesheet/DatesheetShow'
-import EditDatesheet from './component/datesheet/EditDatesheet'
-
-import {Navbar, Nav} from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.css';
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import {Navbar,NavbarBrand,Nav,NavItem} from 'reactstrap'
-function App(props)
-{
-    const handleLogout=()=>{
-        props.dispatch(startUserLogout())
-    }
-    return (
-        <BrowserRouter>
-            <div>
-                { Object.keys(props.user).length!==0?(
+{/* Object.keys(props.user).length!==0?(
                         <div>
                            <Navbar bg='dark' varient="dark">
                                 <Navbar.Brand href={"/"} style={{color:'white'}}>Examination Management</Navbar.Brand>
@@ -149,13 +83,4 @@ function App(props)
                     <Route path="/datesheets/:id" component={DatesheetShow} exact={true} />
                     <Route path="/datesheets/editdatesheet/:id" component={EditDatesheet} />
                 </Switch>
-            </div> 
-        </BrowserRouter>
-    )
-}
-const mapStateToProps=(state)=>{
-    return{
-        user:state.user,
-    }
-}
-export default connect(mapStateToProps)(App)
+            </div> */}

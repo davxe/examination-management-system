@@ -25,8 +25,8 @@ function Home(props)
                             />
                         </div>
                         <Carousel.Caption>
-                            <h3 style={{color:'black',fontSize:'24px'}}><b>First slide label</b></h3>
-                            <p style={{color:'black',fontSize:'24px'}}><b>"Stop being afraid of what could go wrong and think of what could go right."</b></p>
+                            <h3 style={{color:'white',fontSize:'24px'}}><b>First slide label</b></h3>
+                            <p style={{color:'white',fontSize:'24px'}}><b>"Stop being afraid of what could go wrong and think of what could go right."</b></p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -39,8 +39,8 @@ function Home(props)
                             />
                         </div>
                         <Carousel.Caption>
-                            <h3 style={{color:'white',fontSize:'24px'}}><b>Second slide label</b></h3>
-                            <p style={{color:'white',fontSize:'24px'}}><b>“Trust yourself, you know more than you think you do”</b></p>
+                            <h3 style={{color:'black',fontSize:'24px'}}><b>Second slide label</b></h3>
+                            <p style={{color:'black',fontSize:'24px'}}><b>“Trust yourself, you know more than you think you do”</b></p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -53,8 +53,8 @@ function Home(props)
                             />
                         </div>
                         <Carousel.Caption>
-                            <h3 style={{color:'white',fontSize:'24px'}}><b>Third slide label</b></h3>
-                            <p style={{color:'white',fontSize:'24px'}}><b>“Don’t say you don’t have enough time. You have exactly the same amount of hours per day that were given to…</b></p>
+                            <h3 style={{color:'black',fontSize:'24px'}}><b>Third slide label</b></h3>
+                            <p style={{color:'black',fontSize:'24px'}}><b>“Don’t say you don’t have enough time. You have exactly the same amount of hours per day that were given to…</b></p>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>

@@ -52,10 +52,11 @@ import AddDatesheet from './component/datesheet/AddDatesheet'
 import DatesheetShow from './component/datesheet/DatesheetShow'
 import EditDatesheet from './component/datesheet/EditDatesheet'
 
-import {Navbar, Nav} from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.css';
-// import 'bootstrap/dist/css/bootstrap.min.css'
-// import {Navbar,NavbarBrand,Nav,NavItem} from 'reactstrap'
+// import {Navbar, Nav} from 'react-bootstrap'
+// import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css'
+import {Navbar,NavbarBrand,Nav,NavItem} from 'reactstrap'
 function App(props)
 {
     const handleLogout=()=>{
@@ -64,92 +65,111 @@ function App(props)
     return (
         <BrowserRouter>
             <div>
-                { Object.keys(props.user).length!==0?(
-                        <div>
-                           <Navbar bg='dark' varient="dark">
-                                <Navbar.Brand href={"/"} style={{color:'white'}}>Examination Management</Navbar.Brand>
-                                <Nav className="ml-auto" >
-                                    <Nav.Link href={"/"} style={{color:'white'}}>Home</Nav.Link>
-                                    {/* <Nav.Link href={"/admins"} style={{color:'white'}}>Admin</Nav.Link> */}
-                                    <Nav.Link href={"/courses"} style={{color:'white'}}>Course</Nav.Link>
-                                    <Nav.Link href={"/departments"} style={{color:'white'}}>Department</Nav.Link>
-                                    <Nav.Link href={"/semesters"} style={{color:'white'}}>Semester</Nav.Link>
-                                    <Nav.Link href={"/subjects"} style={{color:'white'}}>Subject</Nav.Link>
-                                    <Nav.Link href={"/teachers"} style={{color:'white'}}>Teacher</Nav.Link>
-                                    <Nav.Link href={"/students"} style={{color:'white'}}>Student</Nav.Link>
-                                    <Nav.Link href={"/exams"} style={{color:'white'}}>Exam</Nav.Link>
-                                    <Nav.Link href={"/rooms"} style={{color:'white'}}>RoomNo</Nav.Link>
-                                    <Nav.Link href={"/datesheets"} style={{color:'white'}}>Datesheet</Nav.Link>
-                                    {/* <Nav.Link href={"/seatingplans"} style={{color:'white'}}>SeatingPlan</Nav.Link> */}
-                                    <Nav.Link to="#" onClick={handleLogout} style={{color:'white'}}>Logout</Nav.Link>
-                                </Nav>
-                            </Navbar>
-                        </div>
-                    ):(
-                        <div>
-                           <Navbar bg="dark" variant="dark" >
-                                <Navbar.Brand href={"/"} style={{color:'white'}}>Examination Management</Navbar.Brand>
-                                <Nav className="ml-auto">
-                                    <Nav.Link href={"/"} style={{color:'white'}}>Home</Nav.Link>
-                                    <Nav.Link href={"/users/register"} style={{color:'white'}}>Register</Nav.Link>
-                                    <Nav.Link href={"/users/login"} style={{color:'white'}}>Login</Nav.Link>
-                                </Nav>
-                            </Navbar>
-                        </div>
-                    )
-                }
-                
-                <Switch>
-                    <Route path='/' component={Home} exact={true}/>
-                    <Route path='/users/login' component={Login}/>
-                    <Route path='/users/register' component={Register}/>
-                    
-                    <Route path="/courses" component={CourseList} exact={true} />
-                    <Route path="/courses/add" component={AddCourse} />
-                    <Route path="/courses/:id" component={CourseShow} exact={true} />
-                    <Route path="/courses/editcourse/:id" component={EditCourse} />
+                <Navbar color="dark" light expand="md" className="mb-2" >
+                    <NavbarBrand href={"/"} style={{color:'white'}}>Examination Management</NavbarBrand>
+                    <Nav className="ml-auto" navbar style={{color:'white'}}>
+                        <NavItem>
+                        <Link className="nav-link text-primary" to="/" style={{color:'white'}}>Home</Link>
+                        </NavItem>
+                        {Object.keys(props.user).length !== 0 &&
+                            <React.Fragment>
+                                <NavItem>
+                                    <Link className="nav-link text-primary" to="/courses">Course</Link>
+                                </NavItem>
+                                <NavItem>
+                                    <Link className="nav-link text-primary" to="/departments">Department</Link>
+                                </NavItem>
+                                <NavItem>
+                                    <Link className="nav-link text-primary" to="/semesters">Semester</Link>
+                                </NavItem>
+                                <NavItem>
+                                    <Link className="nav-link text-primary" to="/subjects">Subject</Link>
+                                </NavItem>
+                                <NavItem>
+                                    <Link className="nav-link text-primary" to="/teachers">Teacher</Link>
+                                </NavItem>
+                                <NavItem>
+                                    <Link className="nav-link text-primary" to="/students">Student</Link>
+                                </NavItem>
+                                <NavItem>
+                                    <Link className="nav-link text-primary" to="/exams">Exam</Link>
+                                </NavItem>
+                                <NavItem>
+                                    <Link className="nav-link text-primary" to="/rooms">Room</Link>
+                                </NavItem>
+                                <NavItem>
+                                    <Link className="nav-link text-primary" to="/datesheets">Datesheet</Link>
+                                </NavItem>
+                                <NavItem>
+                                    <Link className="nav-link text-primary" to="#" onClick={handleLogout} style={{color:'white'}}>Logout</Link>
+                                </NavItem>
+                            </React.Fragment>
+                        }
+                        {Object.keys(props.user).length === 0 && 
+                            <React.Fragment>
+                                <NavItem>
+                                    <Link className="nav-link text-primary" to="/users/login">Login</Link>
+                                </NavItem>
+                                <NavItem>
+                                    <Link className="nav-link text-primary" to="/users/register">Register</Link>
+                                </NavItem>
+                            </React.Fragment>
+                        }
+                    </Nav>
+                </Navbar>
+                <div className='container'>
+                    <Switch>
+                        <Route path='/' component={Home} exact={true}/>
+                        <Route path='/users/login' component={Login}/>
+                        <Route path='/users/register' component={Register}/>
+                        
+                        <Route path="/courses" component={CourseList} exact={true} />
+                        <Route path="/courses/add" component={AddCourse} />
+                        <Route path="/courses/:id" component={CourseShow} exact={true} />
+                        <Route path="/courses/editcourse/:id" component={EditCourse} />
 
-                    <Route path="/departments" component={DepartmentList} exact={true} />
-                    <Route path="/departments/add" component={AddDepartment} />
-                    <Route path="/departments/:id" component={DepartmentShow} exact={true} />
-                    <Route path="/departments/editdepartment/:id" component={EditDepartment} />
+                        <Route path="/departments" component={DepartmentList} exact={true} />
+                        <Route path="/departments/add" component={AddDepartment} />
+                        <Route path="/departments/:id" component={DepartmentShow} exact={true} />
+                        <Route path="/departments/editdepartment/:id" component={EditDepartment} />
 
-                    <Route path="/semesters" component={SemesterList} exact={true} />
-                    <Route path="/semesters/add" component={AddSemester} />
-                    <Route path="/semesters/:id" component={SemesterShow} exact={true} />
-                    <Route path="/semesters/editsemester/:id" component={EditSemester} />
+                        <Route path="/semesters" component={SemesterList} exact={true} />
+                        <Route path="/semesters/add" component={AddSemester} />
+                        <Route path="/semesters/:id" component={SemesterShow} exact={true} />
+                        <Route path="/semesters/editsemester/:id" component={EditSemester} />
 
-                    <Route path="/subjects" component={SubjectList} exact={true} />
-                    <Route path="/subjects/add" component={AddSubject} />
-                    <Route path="/subjects/:id" component={SubjectShow} exact={true} />
-                    <Route path="/subjects/editsubject/:id" component={EditSubject} />
+                        <Route path="/subjects" component={SubjectList} exact={true} />
+                        <Route path="/subjects/add" component={AddSubject} />
+                        <Route path="/subjects/:id" component={SubjectShow} exact={true} />
+                        <Route path="/subjects/editsubject/:id" component={EditSubject} />
 
-                    <Route path="/exams" component={ExamList} exact={true} />
-                    <Route path="/exams/add" component={AddExam} />
-                    <Route path="/exams/:id" component={ExamShow} exact={true} />
-                    <Route path="/exams/editexam/:id" component={EditExam} />
+                        <Route path="/exams" component={ExamList} exact={true} />
+                        <Route path="/exams/add" component={AddExam} />
+                        <Route path="/exams/:id" component={ExamShow} exact={true} />
+                        <Route path="/exams/editexam/:id" component={EditExam} />
 
-                    <Route path="/teachers" component={TeacherList} exact={true} />
-                    <Route path="/teachers/add" component={AddTeacher} />
-                    <Route path="/teachers/:id" component={TeacherShow} exact={true} />
-                    <Route path="/teachers/editteacher/:id" component={EditTeacher} />
+                        <Route path="/teachers" component={TeacherList} exact={true} />
+                        <Route path="/teachers/add" component={AddTeacher} />
+                        <Route path="/teachers/:id" component={TeacherShow} exact={true} />
+                        <Route path="/teachers/editteacher/:id" component={EditTeacher} />
 
-                    <Route path="/students" component={StudentList} exact={true} />
-                    <Route path="/students/add" component={AddStudent} />
-                    <Route path="/students/:id" component={StudentShow} exact={true} />
-                    <Route path="/students/editstudent/:id" component={EditStudent} />
+                        <Route path="/students" component={StudentList} exact={true} />
+                        <Route path="/students/add" component={AddStudent} />
+                        <Route path="/students/:id" component={StudentShow} exact={true} />
+                        <Route path="/students/editstudent/:id" component={EditStudent} />
 
-                    <Route path="/rooms" component={RoomList} exact={true} />
-                    <Route path="/rooms/add" component={AddRoom} />
-                    <Route path="/rooms/:id" component={RoomShow} exact={true} />
-                    <Route path="/rooms/editroom/:id" component={EditRoom} />
+                        <Route path="/rooms" component={RoomList} exact={true} />
+                        <Route path="/rooms/add" component={AddRoom} />
+                        <Route path="/rooms/:id" component={RoomShow} exact={true} />
+                        <Route path="/rooms/editroom/:id" component={EditRoom} />
 
-                    <Route path="/datesheets" component={DatesheetList} exact={true} />
-                    <Route path="/datesheets/add" component={AddDatesheet} />
-                    <Route path="/datesheets/:id" component={DatesheetShow} exact={true} />
-                    <Route path="/datesheets/editdatesheet/:id" component={EditDatesheet} />
-                </Switch>
-            </div> 
+                        <Route path="/datesheets" component={DatesheetList} exact={true} />
+                        <Route path="/datesheets/add" component={AddDatesheet} />
+                        <Route path="/datesheets/:id" component={DatesheetShow} exact={true} />
+                        <Route path="/datesheets/editdatesheet/:id" component={EditDatesheet} />
+                    </Switch>
+                </div>
+            </div>
         </BrowserRouter>
     )
 }

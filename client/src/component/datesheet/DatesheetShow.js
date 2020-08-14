@@ -24,7 +24,7 @@ function DatesheetShow(props){
         console.log("message",textmessage)
         axios.post(`/datesheets/send?recipent=${recipent}&textmessage=${textmessage}`)
         .catch(err=>console.error(err))
-        // .then(response=>console.log(response.data))
+        .then(response=>console.log(response.data))
     }
     return (
         <Container>

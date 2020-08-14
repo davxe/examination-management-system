@@ -15,10 +15,10 @@ import { startSetRooms } from './actions/roomAction'
 import { startSetDatesheets } from './actions/datesheetAction'
 import { startSetSemesters } from './actions/semesterAction'
 const store=configureStore()
-console.log(store.getState())
+// console.log(store.getState())
 
 store.subscribe(()=>{
-    console.log(store.getState())
+    // console.log(store.getState())
 })
 
 if(localStorage.getItem('authToken'))

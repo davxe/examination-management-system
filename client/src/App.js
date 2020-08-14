@@ -53,10 +53,10 @@ import DatesheetShow from './component/datesheet/DatesheetShow'
 import EditDatesheet from './component/datesheet/EditDatesheet'
 
 // import {Navbar, Nav} from 'react-bootstrap'
-// import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import {Navbar,NavbarBrand,Nav,NavItem} from 'reactstrap'
+import {Navbar,NavbarBrand,Nav,NavLink,NavItem} from 'reactstrap'
 function App(props)
 {
     const handleLogout=()=>{
@@ -67,17 +67,17 @@ function App(props)
             <div>
                 <Navbar color="dark" light expand="md" className="mb-2" >
                     <NavbarBrand href={"/"} style={{color:'white'}}>Examination Management</NavbarBrand>
-                    <Nav className="ml-auto" navbar style={{color:'white'}}>
+                    <Nav className="ml-auto" navbar>
                         <NavItem>
                         <Link className="nav-link text-primary" to="/" style={{color:'white'}}>Home</Link>
                         </NavItem>
                         {Object.keys(props.user).length !== 0 &&
                             <React.Fragment>
                                 <NavItem>
-                                    <Link className="nav-link text-primary" to="/courses">Course</Link>
+                                    <NavLink className="nav-link text-primary" to="/courses" style={{color:'white'}}>Course</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <Link className="nav-link text-primary" to="/departments">Department</Link>
+                                    <Link className="nav-link text-primary" to="/departments" style={{color:'white'}}>Department</Link>
                                 </NavItem>
                                 <NavItem>
                                     <Link className="nav-link text-primary" to="/semesters">Semester</Link>
@@ -108,7 +108,7 @@ function App(props)
                         {Object.keys(props.user).length === 0 && 
                             <React.Fragment>
                                 <NavItem>
-                                    <Link className="nav-link text-primary" to="/users/login">Login</Link>
+                                    <Link className="nav-link text-primary" to="/users/login" style={{color:'white'}}>Login</Link>
                                 </NavItem>
                                 <NavItem>
                                     <Link className="nav-link text-primary" to="/users/register">Register</Link>

@@ -69,7 +69,7 @@ module.exports.send=(req,res)=>{
     client.messages.create({
         body:textmessage,
         from:'+12029320920',
-        to:`${recipent}`,
+        to:`+${recipent}`,
     }).then((message)=>console.log(message.sid))
     console.log("to",recipent,"message",textmessage)
 }

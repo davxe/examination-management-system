@@ -8,7 +8,7 @@ import swal from 'sweetalert'
 import { Container, Table, Button } from 'react-bootstrap' 
 
 function StudentList(props){
-    //console.log(props.subject)
+    console.log(props.subject)
 
     const handleRemove = (id) => {
         swal({
@@ -51,12 +51,12 @@ function StudentList(props){
                     </thead>
                     <tbody>
                         {
-                            props.student.map((ele,i) => {
+                            (props.student)?.map((ele,i) => {
                                 return (
                                     <tr key={i}>
                                         <td>{i+1}</td>
                                         <td> {ele.roll} </td>
-                                        <td> {(ele)?.course.course_name} </td>
+                                        <td> {ele.course.course_name} </td>
                                         <td> {ele.department.department_name} </td>
                                         <td> {ele.semester.semester} </td>
                                         <td> {ele.name} </td>

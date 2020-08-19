@@ -51,7 +51,7 @@ function StudentList(props){
                     </thead>
                     <tbody>
                         {
-                            (props.student)?.map((ele,i) => {
+                            props.student.map((ele,i) => {
                                 return (
                                     <tr key={i}>
                                         <td>{i+1}</td>

@@ -5,30 +5,19 @@ import { findCourse } from '../../selectors/courseSelector'
 import { Container } from 'react-bootstrap'
 import axios from '../../config/axios'
 
-class CourseShow extends React.Component{
-    constructor(){
-        super()
-        this.state={
-            name:''
-        }
-    }
-    componentDidMount(){
-        axios.get(`/courses/${this.props.match.params.id}`,{headers:{'x-auth':localStorage.getItem('authToken')}})
-            .then(response=>{
-                if(response.data._id){
-                    this.setState({name:response.data.course_name})
-                }
-            })
-    }
-    render(){
-        return (
-            <Container>
-                <h1 className='pt-5 pb-2'>Course Show</h1>
-                <h2 className='mt-5'><b>Course Name:-</b>{this.state.name} </h2>
-                <Link className='text-primary' to='/courses'>back</Link>
-            </Container>
-        )
-    }
-    
+function CourseShow(props){
+    return (
+        <Container>
+            <h1 className='pt-5 pb-2'>Room Show</h1>
+            <h2 className='mt-3'><b>Room No.:-</b>{(props.course)?.course_name} </h2><br/>
+            <Link className='text-primary' to='/rooms'>back</Link>
+        </Container>
+    )
 }
-export default connect()(CourseShow)
+const mapStateToProps=(state,props)=>{
+    const id=props.match.params.id
+    return{
+        course:findCourse(state.course,id)
+    }
+}
+export default connect(mapStateToProps)(CourseShow)

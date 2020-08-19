@@ -56,7 +56,7 @@ function StudentList(props){
                                     <tr key={i}>
                                         <td>{i+1}</td>
                                         <td> {ele.roll} </td>
-                                        <td> {ele.course.course_name} </td>
+                                        <td> {(ele)?.course.course_name} </td>
                                         <td> {ele.department.department_name} </td>
                                         <td> {ele.semester.semester} </td>
                                         <td> {ele.name} </td>

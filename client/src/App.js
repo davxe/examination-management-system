@@ -56,7 +56,7 @@ import EditDatesheet from './component/datesheet/EditDatesheet'
 import 'bootstrap/dist/css/bootstrap.css';
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import {Navbar,NavbarBrand,Nav,NavLink,NavItem} from 'reactstrap'
+import {Navbar,NavbarBrand,Nav,NavItem} from 'reactstrap'
 function App(props)
 {
     const handleLogout=()=>{
@@ -69,55 +69,55 @@ function App(props)
                     <NavbarBrand href={"/"} style={{color:'white'}}>Examination Management</NavbarBrand>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                        <Link className="nav-link text-primary" to="/" style={{color:'white'}}>Home</Link>
+                        <Link className="nav-link text-light" to="/" style={{ color: '#FFF' }}>Home</Link>
                         </NavItem>
                         {Object.keys(props.user).length !== 0 &&
                             <React.Fragment>
                                 <NavItem>
-                                    <NavLink className="nav-link text-primary" to="/courses" style={{color:'white'}}>Course</NavLink>
+                                    <Link to="/courses" className="nav-link text-light">Course</Link>
                                 </NavItem>
                                 <NavItem>
-                                    <Link className="nav-link text-primary" to="/departments" style={{color:'white'}}>Department</Link>
+                                    <Link className="nav-link text-light" to="/departments">Department</Link>
                                 </NavItem>
                                 <NavItem>
-                                    <Link className="nav-link text-primary" to="/semesters">Semester</Link>
+                                    <Link className="nav-link text-light" to="/semesters">Semester</Link>
                                 </NavItem>
                                 <NavItem>
-                                    <Link className="nav-link text-primary" to="/subjects">Subject</Link>
+                                    <Link className="nav-link text-light" to="/subjects">Subject</Link>
                                 </NavItem>
                                 <NavItem>
-                                    <Link className="nav-link text-primary" to="/teachers">Teacher</Link>
+                                    <Link className="nav-link text-light" to="/teachers">Teacher</Link>
                                 </NavItem>
                                 <NavItem>
-                                    <Link className="nav-link text-primary" to="/students">Student</Link>
+                                    <Link className="nav-link text-light" to="/students">Student</Link>
                                 </NavItem>
                                 <NavItem>
-                                    <Link className="nav-link text-primary" to="/exams">Exam</Link>
+                                    <Link className="nav-link text-light" to="/exams">Exam</Link>
                                 </NavItem>
                                 <NavItem>
-                                    <Link className="nav-link text-primary" to="/rooms">Room</Link>
+                                    <Link className="nav-link text-light" to="/rooms">Room</Link>
                                 </NavItem>
                                 <NavItem>
-                                    <Link className="nav-link text-primary" to="/datesheets">Datesheet</Link>
+                                    <Link className="nav-link text-light" to="/datesheets">Datesheet</Link>
                                 </NavItem>
                                 <NavItem>
-                                    <Link className="nav-link text-primary" to="#" onClick={handleLogout} style={{color:'white'}}>Logout</Link>
+                                    <Link className="nav-link text-light" to="#" onClick={handleLogout} style={{color:'white'}}>Logout</Link>
                                 </NavItem>
                             </React.Fragment>
                         }
                         {Object.keys(props.user).length === 0 && 
                             <React.Fragment>
                                 <NavItem>
-                                    <Link className="nav-link text-primary" to="/users/login" style={{color:'white'}}>Login</Link>
+                                    <Link className="nav-link text-light" to="/users/login" style={{color:'white'}}>Login</Link>
                                 </NavItem>
                                 <NavItem>
-                                    <Link className="nav-link text-primary" to="/users/register">Register</Link>
+                                    <Link className="nav-link text-light" to="/users/register">Register</Link>
                                 </NavItem>
                             </React.Fragment>
                         }
                     </Nav>
                 </Navbar>
-                <div className='container'>
+                <div className="ml-auto">
                     <Switch>
                         <Route path='/' component={Home} exact={true}/>
                         <Route path='/users/login' component={Login}/>

@@ -8,9 +8,9 @@ function DepartmentShow(props){
     return (
         <Container>
             <h1 className='pt-5 pb-2'>Department Show</h1>
-            <h2 className='mt-3'><b>Course Name:-</b>{props.department.course.course_name} </h2>
-            <h2 className='mt-3'><b>Department Name:-</b>{props.department.department_name} </h2><br/>
-            <Link to='/departments'>back</Link>
+            <h2 className='mt-3'><b>Course Name:-</b>{(props.department)?.course.course_name} </h2>
+            <h2 className='mt-3'><b>Department Name:-</b>{(props.department)?.department_name} </h2><br/>
+            <Link className='text-primary' to='/departments'>back</Link>
         </Container>
     )
 }

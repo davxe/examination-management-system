@@ -69,7 +69,7 @@ function TeacherList(props){
                         }
                     </tbody>
                 </Table>
-                <Link to="/teachers/add">Add Teacher</Link>
+                <Link className='text-primary' to="/teachers/add">Add Teacher</Link>
             </Container>
         </div>
     )

@@ -56,7 +56,7 @@ function RoomList(props){
                         }
                     </tbody>
                 </Table>
-                <Link to="/rooms/add">Add Room</Link>
+                <Link className='text-primary' to="/rooms/add">Add Room</Link>
             </Container>
         </div>
     )

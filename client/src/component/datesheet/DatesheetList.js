@@ -73,7 +73,7 @@ function DatesheetList(props){
                         }
                     </tbody>
                 </Table>
-                <Link to="/datesheets/add">Add Datesheet</Link>
+                <Link className='text-primary' to="/datesheets/add">Add Datesheet</Link>
             </Container>
         </div>
     )

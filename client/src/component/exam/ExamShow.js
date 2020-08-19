@@ -9,8 +9,8 @@ function ExamShow(props){
     return (
         <Container>
             <h1 className='pt-5 pb-2'>Exam Show</h1>
-            <h2 className='mt-3'><b>Exam Name:-</b>{props.exam.exam_name} </h2><br/>
-            <Link to='/exams'>back</Link>
+            <h2 className='mt-3'><b>Exam Name:-</b>{(props.exam)?.exam_name} </h2><br/>
+            <Link className='text-primary' to='/exams'>back</Link>
         </Container>
     )
 }

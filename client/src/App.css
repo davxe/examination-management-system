@@ -1,13 +1,15 @@
 table,th,td{
     border: 1px solid black;
 }
+body {
+    display: auto;
+    /* background-image: linear-gradient(#E4C4F9,#B7F4C9,#F4F8F9 ); */
 
+}
 h1,h2 {
     font-display: bold;
 }
 Link{
-    color:white;
+    color: blue;
 }
-.nav-link{
-    color:white;
-}
+

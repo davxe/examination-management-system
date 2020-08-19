@@ -61,7 +61,7 @@ function ExamList(props){
                         }
                     </tbody>
                 </Table>
-                <Link to="/exams/add">Add Exam</Link>
+                <Link className='text-primary' to="/exams/add">Add Exam</Link>
             </Container>
         </div>
     )

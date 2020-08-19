@@ -27,6 +27,7 @@ function StudentList(props){
         })
         
     }
+    console.log(props)
     return(
         <div className="fluid-container" style={{height:"100%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9 )"}}>
             <Container>
@@ -71,7 +72,7 @@ function StudentList(props){
                         }
                     </tbody>
                 </Table>
-                <Link to="/students/add">Add Student</Link>
+                <Link className='text-primary' to="/students/add">Add Student</Link>
             </Container>
         </div>
     )

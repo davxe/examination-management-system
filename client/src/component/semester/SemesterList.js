@@ -56,7 +56,7 @@ function SemesterList(props){
                         }
                     </tbody>
                 </Table>
-                <Link to="/semesters/add">Add Semester</Link>
+                <Link className='text-primary' to="/semesters/add">Add Semester</Link>
             </Container>
         </div>
     )

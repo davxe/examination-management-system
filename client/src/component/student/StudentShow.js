@@ -8,13 +8,13 @@ function StudentShow(props){
     return (
         <Container>
             <h1 className='pt-5 pb-2'>Student Show</h1>
-            <h2 className='mt-3'><b>Course Name:-</b>{props.student.course.course_name} </h2>
-            <h2 className='mt-3'><b>Department Name:-</b>{props.student.department.department_name} </h2>
-            <h2 className='mt-3'><b>Semester:-</b>{props.student.semester.semester} </h2>
-            <h2 className='mt-3'><b>Student Name:-</b>{props.student.name}</h2>
-            <h2 className='mt-3'><b>Fathers Name:-</b>{props.student.fathers_name} </h2>
-            <h2 className='mt-3'><b>Address:-</b>{props.student.address}</h2>
-            <Link to='/students'>back</Link>
+            <h2 className='mt-3'><b>Course Name:-</b>{(props.student)?.course.course_name} </h2>
+            <h2 className='mt-3'><b>Department Name:-</b>{(props.student)?.department.department_name} </h2>
+            <h2 className='mt-3'><b>Semester:-</b>{(props.student)?.semester.semester} </h2>
+            <h2 className='mt-3'><b>Student Name:-</b>{(props.student)?.name}</h2>
+            <h2 className='mt-3'><b>Fathers Name:-</b>{(props.student)?.fathers_name} </h2>
+            <h2 className='mt-3'><b>Address:-</b>{(props.student)?.address}</h2>
+            <Link className='text-primary' to='/students'>back</Link>
         </Container>
     )
 }
@@ -22,9 +22,6 @@ const mapStateToProps=(state,props)=>{
     const id=props.match.params.id
     return{
         student:findStudent(state.student,id),
-        course:state.course,
-        department:state.department,
-        subject:state.subject
     }
 }
 export default connect(mapStateToProps)(StudentShow)

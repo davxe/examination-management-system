@@ -57,7 +57,7 @@ function CourseList(props){
                         }
                     </tbody>
                 </Table>
-                <Link to="/courses/add">Add Course</Link>
+                <Link  className='text-primary' to="/courses/add">Add Course</Link>
             </Container>
         </div>
     )

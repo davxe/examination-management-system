@@ -64,7 +64,7 @@ function SubjectList(props){
                         }
                     </tbody>
                 </Table>
-                <Link to="/subjects/add">Add Subject</Link>
+                <Link className='text-primary' to="/subjects/add">Add Subject</Link>
             </Container>
         </div>
     )

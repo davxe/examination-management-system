@@ -62,7 +62,7 @@ function DepartmentList(props){
                         }
                     </tbody>
                 </Table>
-                <Link to="/departments/add">Add Department</Link>
+                <Link className='text-primary' to="/departments/add">Add Department</Link>
             </Container>
         </div>
     )

@@ -9,7 +9,17 @@ body {
 h1,h2 {
     font-display: bold;
 }
-Link{
-    color: blue;
+.btn:hover{
+    border-radius: 15px;
+    background-color: burlywood;
+    border: 2px solid brown;
 }
+.form-control:hover{
+    border-radius: 15px;
+    background-color: rgb(135, 166, 222);
+    border: 2px solid rgb(42, 165, 144);
 
+}
+.card:hover{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}

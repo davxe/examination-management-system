@@ -73,7 +73,7 @@ function Home(props)
                             </Card.Text>
                         </Card.Body>
                         <Card.Footer>
-                            <small className="text-muted">Last updated  {moment().startOf('hour').fromNow()}</small>
+                            <small className="text-muted">Last updated  {moment().startOf('day').fromNow()}</small>
                         </Card.Footer>
                     </Card>
                     <Card>
@@ -85,7 +85,7 @@ function Home(props)
                             </Card.Text>
                         </Card.Body>
                         <Card.Footer>
-                            <small className="text-muted">Last updated {moment().startOf('hour').fromNow()}</small>
+                            <small className="text-muted">Last updated {moment().startOf('day').fromNow()}</small>
                         </Card.Footer>
                     </Card>
                     <Card>
@@ -97,7 +97,7 @@ function Home(props)
                             </Card.Text>
                         </Card.Body>
                         <Card.Footer>
-                            <small className="text-muted">Last updated {moment().startOf('hour').fromNow()}</small>
+                            <small className="text-muted">Last updated {moment().startOf('day').fromNow()}</small>
                         </Card.Footer>
                     </Card>
                 </CardDeck>

@@ -2,6 +2,11 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { startLoginUser } from '../../actions/userAction'
 import img from './img.png'
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
+import IconButton from "@material-ui/core/IconButton";
+import Input from "@material-ui/core/Input";
 class Login extends React.Component
 {
     constructor(props)
@@ -9,11 +14,15 @@ class Login extends React.Component
         super(props)
         this.state={
             email:'',
-            password:''
+            password:'',
+            showPassword:false,
         }
     }
     handleChange=(e)=>{
         this.setState({[e.target.name]:e.target.value})
+    }
+    handleClickShowPassword=()=>{
+        this.setState((prevState)=>({showPassword:!prevState.showPassword}))
     }
     handleSubmit=(e)=>{
         e.preventDefault()
@@ -42,10 +51,24 @@ class Login extends React.Component
                                     <input type="text" name="email" placeholder="Enter Email" className="form-control" onChange={this.handleChange} value={this.state.email} />
                                 </div>
                                 <div className="container form-group">
-                                    <input type="password" name="password" placeholder="Enter Password" className="form-control" value={this.state.password} onChange={this.handleChange}/>
+                                    <Input 
+                                        type={this.state.showPassword?"text":"password"} 
+                                        name="password" 
+                                        placeholder="Enter Password" 
+                                        className="form-control" 
+                                        value={this.state.password} 
+                                        onChange={this.handleChange}
+                                        endAdornment={
+                                            <InputAdornment position='end'>
+                                                <IconButton aria-label='Toggle password visibility' onClick={this.handleClickShowPassword}>
+                                                    {this.state.showPassword?(<Visibility/>):(<VisibilityOff/>)}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        }
+                                    />
                                 </div>
                                 <div className="container form-group">
-                                    <input type="submit" value="Login" className="form-control btn btn-primary"/>
+                                    <Input type="submit" value="Login" className="form-control btn btn-primary"/>
                                 </div>
                             </form>
                         </div>

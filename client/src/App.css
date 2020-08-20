@@ -18,6 +18,7 @@ h1,h2 {
     border-radius: 15px;
     background-color: rgb(135, 166, 222);
     border: 2px solid rgb(42, 165, 144);
+    text-decoration: block;
 
 }
 .card:hover{

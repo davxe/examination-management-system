@@ -1,5 +1,6 @@
 import React from 'react'
 import {BrowserRouter,Route,Switch,Link} from 'react-router-dom'
+import PrivateRoute from './component/auth/PrivateRoute'
 import {connect} from 'react-redux'
 
 import Home from './component/static/Home'
@@ -123,50 +124,50 @@ function App(props)
                         <Route path='/users/login' component={Login}/>
                         <Route path='/users/register' component={Register}/>
                         
-                        <Route path="/courses" component={CourseList} exact={true} />
-                        <Route path="/courses/add" component={AddCourse} />
-                        <Route path="/courses/:id" component={CourseShow} exact={true} />
-                        <Route path="/courses/editcourse/:id" component={EditCourse} />
+                        <PrivateRoute path="/courses" component={CourseList} exact={true} />
+                        <PrivateRoute path="/courses/add" component={AddCourse} />
+                        <PrivateRoute path="/courses/:id" component={CourseShow} exact={true} />
+                        <PrivateRoute path="/courses/editcourse/:id" component={EditCourse} />
 
-                        <Route path="/departments" component={DepartmentList} exact={true} />
-                        <Route path="/departments/add" component={AddDepartment} />
-                        <Route path="/departments/:id" component={DepartmentShow} exact={true} />
-                        <Route path="/departments/editdepartment/:id" component={EditDepartment} />
+                        <PrivateRoute path="/departments" component={DepartmentList} exact={true} />
+                        <PrivateRoute path="/departments/add" component={AddDepartment} />
+                        <PrivateRoute path="/departments/:id" component={DepartmentShow} exact={true} />
+                        <PrivateRoute path="/departments/editdepartment/:id" component={EditDepartment} />
 
-                        <Route path="/semesters" component={SemesterList} exact={true} />
-                        <Route path="/semesters/add" component={AddSemester} />
-                        <Route path="/semesters/:id" component={SemesterShow} exact={true} />
-                        <Route path="/semesters/editsemester/:id" component={EditSemester} />
+                        <PrivateRoute path="/semesters" component={SemesterList} exact={true} />
+                        <PrivateRoute path="/semesters/add" component={AddSemester} />
+                        <PrivateRoute path="/semesters/:id" component={SemesterShow} exact={true} />
+                        <PrivateRoute path="/semesters/editsemester/:id" component={EditSemester} />
 
-                        <Route path="/subjects" component={SubjectList} exact={true} />
-                        <Route path="/subjects/add" component={AddSubject} />
-                        <Route path="/subjects/:id" component={SubjectShow} exact={true} />
-                        <Route path="/subjects/editsubject/:id" component={EditSubject} />
+                        <PrivateRoute path="/subjects" component={SubjectList} exact={true} />
+                        <PrivateRoute path="/subjects/add" component={AddSubject} />
+                        <PrivateRoute path="/subjects/:id" component={SubjectShow} exact={true} />
+                        <PrivateRoute path="/subjects/editsubject/:id" component={EditSubject} />
 
-                        <Route path="/exams" component={ExamList} exact={true} />
-                        <Route path="/exams/add" component={AddExam} />
-                        <Route path="/exams/:id" component={ExamShow} exact={true} />
-                        <Route path="/exams/editexam/:id" component={EditExam} />
+                        <PrivateRoute path="/exams" component={ExamList} exact={true} />
+                        <PrivateRoute path="/exams/add" component={AddExam} />
+                        <PrivateRoute path="/exams/:id" component={ExamShow} exact={true} />
+                        <PrivateRoute path="/exams/editexam/:id" component={EditExam} />
 
-                        <Route path="/teachers" component={TeacherList} exact={true} />
-                        <Route path="/teachers/add" component={AddTeacher} />
-                        <Route path="/teachers/:id" component={TeacherShow} exact={true} />
-                        <Route path="/teachers/editteacher/:id" component={EditTeacher} />
+                        <PrivateRoute path="/teachers" component={TeacherList} exact={true} />
+                        <PrivateRoute path="/teachers/add" component={AddTeacher} />
+                        <PrivateRoute path="/teachers/:id" component={TeacherShow} exact={true} />
+                        <PrivateRoute path="/teachers/editteacher/:id" component={EditTeacher} />
 
-                        <Route path="/students" component={StudentList} exact={true} />
-                        <Route path="/students/add" component={AddStudent} />
-                        <Route path="/students/:id" component={StudentShow} exact={true} />
-                        <Route path="/students/editstudent/:id" component={EditStudent} />
+                        <PrivateRoute path="/students" component={StudentList} exact={true} />
+                        <PrivateRoute path="/students/add" component={AddStudent} />
+                        <PrivateRoute path="/students/:id" component={StudentShow} exact={true} />
+                        <PrivateRoute path="/students/editstudent/:id" component={EditStudent} />
 
-                        <Route path="/rooms" component={RoomList} exact={true} />
-                        <Route path="/rooms/add" component={AddRoom} />
-                        <Route path="/rooms/:id" component={RoomShow} exact={true} />
-                        <Route path="/rooms/editroom/:id" component={EditRoom} />
+                        <PrivateRoute path="/rooms" component={RoomList} exact={true} />
+                        <PrivateRoute path="/rooms/add" component={AddRoom} />
+                        <PrivateRoute path="/rooms/:id" component={RoomShow} exact={true} />
+                        <PrivateRoute path="/rooms/editroom/:id" component={EditRoom} />
 
-                        <Route path="/datesheets" component={DatesheetList} exact={true} />
-                        <Route path="/datesheets/add" component={AddDatesheet} />
-                        <Route path="/datesheets/:id" component={DatesheetShow} exact={true} />
-                        <Route path="/datesheets/editdatesheet/:id" component={EditDatesheet} />
+                        <PrivateRoute path="/datesheets" component={DatesheetList} exact={true} />
+                        <PrivateRoute path="/datesheets/add" component={AddDatesheet} />
+                        <PrivateRoute path="/datesheets/:id" component={DatesheetShow} exact={true} />
+                        <PrivateRoute path="/datesheets/editdatesheet/:id" component={EditDatesheet} />
                     </Switch>
                 </div>
             </div>

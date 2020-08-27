@@ -25,6 +25,7 @@
     "mongoose": "^5.9.21",
     "path": "^0.12.7",
     "twilio": "^3.48.1",
+    "validate-phone-number-node-js": "0.0.1",
     "validator": "^13.1.1"
   }
 }

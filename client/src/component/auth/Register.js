@@ -7,6 +7,7 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
+import { Form,Image } from 'react-bootstrap';
 class Register extends React.Component
 {
     constructor(props)
@@ -46,14 +47,14 @@ class Register extends React.Component
                     <div className="col-sm-4"></div>
                     <div className="col-sm-4" style={{backgroundColor: "red",backgroundImage:`linear-gradient(#add8e6,#808080,#90EE90)`}}>
                         <div className="container">
-                            <img src={img} alt="img" height="200px" width="200px" className="mx-auto d-block rounded-circle"></img>
+                            <Image src={img} alt="img" height="200px" width="200px" className="mx-auto d-block rounded-circle"></Image>
                             <h1 className="text-center pt-1">REGISTER</h1><br/>
-                            <form onSubmit={this.handleSubmit}>
+                            <Form onSubmit={this.handleSubmit}>
                                 <div className="container form-group">
-                                    <input type="text" name="username" placeholder="Enter Username" className="form-control" onChange={this.handleChange} value={this.state.username} />
+                                    <Form.Control type="text" name="username" placeholder="Enter Username" className="form-control" onChange={this.handleChange} value={this.state.username} />
                                 </div>
                                 <div className="container form-group">
-                                    <input type="text" name="email" placeholder="Enter Email" className="form-control" onChange={this.handleChange} value={this.state.email} />
+                                    <Form.Control type="text" name="email" placeholder="Enter Email" className="form-control" onChange={this.handleChange} value={this.state.email} />
                                 </div>
                                 <div className="container form-group">
                                     <Input 
@@ -73,9 +74,9 @@ class Register extends React.Component
                                     />
                                 </div>
                                 <div className="container form-group">
-                                    <input type="submit" value="Register" className="form-control btn btn-primary"/>
+                                    <Form.Control type="submit" value="Register" className="form-control btn btn-primary"/>
                                 </div>
-                            </form>
+                            </Form>
                         </div>
                     </div>
                     <div className="col-sm-4"></div>

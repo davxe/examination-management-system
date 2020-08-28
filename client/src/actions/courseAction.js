@@ -18,7 +18,6 @@ export const startAddCourses =(formData,redirect)=>{
                 else{
                     // alert('successfully added')
                     swal({
-                        title: "Good job!",
                         text: "added successfully",
                         icon: "success",
                       });
@@ -75,7 +74,6 @@ export const startEditCourse = (course, redirect) => {
             }
             else{
                 swal({
-                    title: "Good job!",
                     text: "added successfully",
                     icon: "success",
                   });

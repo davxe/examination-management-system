@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {BrowserRouter,Route,Switch,Link} from 'react-router-dom'
 import PrivateRoute from './component/auth/PrivateRoute'
 import {connect} from 'react-redux'
@@ -57,9 +57,11 @@ import EditDatesheet from './component/datesheet/EditDatesheet'
 import 'bootstrap/dist/css/bootstrap.css';
 // import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import {Navbar,NavbarBrand,Nav,NavItem} from 'reactstrap'
+import {Navbar,NavbarBrand,Nav,NavItem, NavbarToggler,Collapse} from 'reactstrap'
 function App(props)
 {
+    const [isOpen,setIsOpen]=useState(false)
+    const toggle=()=>setIsOpen(!isOpen)
     const handleLogout=()=>{
         props.dispatch(startUserLogout())
     }
@@ -68,6 +70,8 @@ function App(props)
             <div>
                 <Navbar color="dark" light expand="md" className="mb-2" >
                     <NavbarBrand href={"/"} style={{color:'white'}}>Examination Management</NavbarBrand>
+                    <NavbarToggler onClick={toggle}/>
+                    <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
                         <Link className="nav-link text-light" to="/" style={{ color: '#FFF' }}>Home</Link>
@@ -117,6 +121,7 @@ function App(props)
                             </React.Fragment>
                         }
                     </Nav>
+                    </Collapse>
                 </Navbar>
                 <div className="ml-auto">
                     <Switch>

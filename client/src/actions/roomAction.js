@@ -16,7 +16,6 @@ export const startAddRooms =(formData,redirect)=>{
                 }
                 else{
                     swal({
-                        title: "Good job!",
                         text: "added successfully",
                         icon: "success",
                       });
@@ -73,7 +72,6 @@ export const startEditRoom = (room, redirect) => {
             }
             else{
                 swal({
-                    title: "Good job!",
                     text: "updated successfully",
                     icon: "success",
                   });

@@ -16,7 +16,6 @@ export const startAddExams =(formData,redirect)=>{
                 }
                 else{
                     swal({
-                        title: "Good job!",
                         text: "added successfully",
                         icon: "success",
                       });
@@ -72,7 +71,6 @@ export const startEditExam = (exam, redirect) => {
             }
             else{
                 swal({
-                    title: "Good job!",
                     text: "updated successfully",
                     icon: "success",
                   });

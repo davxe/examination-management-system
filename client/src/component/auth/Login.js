@@ -7,6 +7,8 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
+import { Form,Image,Button } from 'react-bootstrap';
+import {Link} from 'react-router-dom'
 class Login extends React.Component
 {
     constructor(props)
@@ -34,7 +36,7 @@ class Login extends React.Component
             return this.props.history.push('/')
         }
         this.props.dispatch(startLoginUser(loginData,redirect))
-        console.log(loginData)
+        // console.log(loginData)
     }
     render()
     {
@@ -44,11 +46,11 @@ class Login extends React.Component
                     <div className="col-sm-4"></div>
                     <div className="col-sm-4" style={{backgroundColor: "red",backgroundImage:`linear-gradient(#add8e6,#808080,#90EE90)`}}>
                         <div className="container">
-                            <img src={img} alt="img" height="200px" width="200px" className="mx-auto d-block rounded-circle"></img>
+                            <Image src={img} alt="img" height="200px" width="200px" className="mx-auto d-block rounded-circle"></Image>
                             <h1 className="text-center pt-1">LOGIN</h1><br/>
-                            <form onSubmit={this.handleSubmit}>
+                            <Form onSubmit={this.handleSubmit}>
                                 <div className="container form-group">
-                                    <input type="text" name="email" placeholder="Enter Email" className="form-control" onChange={this.handleChange} value={this.state.email} />
+                                    <Form.Control type="text" name="email" placeholder="Enter Email" className="form-control" onChange={this.handleChange} value={this.state.email} />
                                 </div>
                                 <div className="container form-group">
                                     <Input 
@@ -68,9 +70,9 @@ class Login extends React.Component
                                     />
                                 </div>
                                 <div className="container form-group">
-                                    <Input type="submit" value="Login" className="form-control btn btn-primary"/>
+                                    <Form.Control type="submit" value="Login" className="form-control btn btn-primary"/>
                                 </div>
-                            </form>
+                            </Form>
                         </div>
                     </div>
                     <div className="col-sm-4"></div>

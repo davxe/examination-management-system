@@ -40,7 +40,7 @@ usersController.login=(req,res)=>{
                             email:user.email,
                             username:user.username
                         }
-                        const token=jwt.sign(tokenData,'Prince@123',{expiresIn:'2d'})
+                        const token=jwt.sign(tokenData,'Prince@123')
                         res.json({"token":token})
                     }
                     else

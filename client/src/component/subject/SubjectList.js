@@ -26,6 +26,15 @@ function SubjectList(props){
         })
         
     }
+    const findCourseById=(id)=>{
+        return props.course.find(course=>course._id===id)
+    }
+    const findDepartmentById=(id)=>{
+        return props.department.find(dept=>dept._id===id)
+    }
+    const findSemesterById=(id)=>{
+        return props.semester.find(semester=>semester._id===id)
+    }
     return(
         <div className="fluid-container" style={{height:"100%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
             <Container>
@@ -50,9 +59,9 @@ function SubjectList(props){
                                 return (
                                     <tr key={i}>
                                         <td> {i+1} </td>
-                                        <td> {ele.course.course_name} </td>
-                                        <td> {ele.department.department_name} </td>
-                                        <td> {ele.semester.semester} </td>
+                                        <td> {ele.course.course_name?ele.course.course_name:findCourseById(ele.course).course_name} </td>
+                                        <td> {ele.department.department_name?ele.department.department_name:findDepartmentById(ele.department).department_name} </td>
+                                        <td> {ele.semester.semester?ele.semester.semester:findSemesterById(ele.semester).semester} </td>
                                         <td> {ele.subject_name} </td>
                                         <td> {ele.description} </td>
                                         <td><Link to={`/subjects/${ele._id}`}><Button className='btn btn-info'>show</Button></Link></td>
@@ -74,7 +83,8 @@ const mapStateToProps = (state) => {
     return {
         course: state.course,
         department:state.department,
-        subject:state.subject
+        semester:state.semester,
+        subject:state.subject,
     }
 }
 export default connect(mapStateToProps)(SubjectList)

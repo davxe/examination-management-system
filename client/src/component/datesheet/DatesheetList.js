@@ -27,6 +27,24 @@ function DatesheetList(props){
         })
         
     }
+    const findCourseById=(id)=>{
+        return props.course.find(course=>course._id===id)
+    }
+    const findExamById=(id)=>{
+        return props.exam.find(exam=>exam._id===id)
+    }
+    const findDepartmentById=(id)=>{
+        return props.department.find(department=>department._id===id)
+    }
+    const findSubjectById=(id)=>{
+        return props.subject.find(subject=>subject._id===id)
+    }
+    const findRoomById=(id)=>{
+        return props.room.find(room=>room._id===id)
+    }
+    const findSemesterById=(id)=>{
+        return props.semester.find(semester=>semester._id===id)
+    }
     return(
         <div className="fluid-container" style={{height:"100%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9 )"}}>
             <Container>
@@ -55,12 +73,12 @@ function DatesheetList(props){
                                 return (
                                     <tr key={i}>
                                         <td> {i+1} </td>
-                                        <td> {ele.exam.exam_name} </td>
-                                        <td> {ele.course.course_name} </td>
-                                        <td> {ele.department.department_name} </td>
-                                        <td> {ele.room.room} </td>
-                                        <td> {ele.semester.semester} </td>
-                                        <td> {ele.subject.subject_name} </td>
+                                        <td> {ele.exam.exam_name?ele.exam.exam_name:findExamById(ele.exam).exam_name} </td>
+                                        <td> {ele.course.course_name?ele.course.course_name:findCourseById(ele.course).course_name} </td>
+                                        <td> {ele.department.department_name?ele.department.department_name:findDepartmentById(ele.department).department_name} </td>
+                                        <td> {ele.room.room?ele.room.room:findRoomById(ele.room).room} </td>
+                                        <td> {ele.semester.semester?ele.semester.semester:findSemesterById(ele.semester).semester} </td>
+                                        <td> {ele.subject.subject_name?ele.subject.subject_name:findSubjectById(ele.subject).subject_name} </td>
                                         <td> {moment(ele.examDate).format('L')} </td>
                                         <td> {ele.startTime} </td>
                                         <td> {ele.endTime} </td>
@@ -83,6 +101,8 @@ const mapStateToProps = (state) => {
     return {
         course: state.course,
         department:state.department,
+        semester:state.semester,
+        room:state.room,
         subject:state.subject,
         exam:state.exam,
         datesheet:state.datesheet

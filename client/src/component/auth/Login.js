@@ -7,7 +7,7 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
-import { Form,Image,Button } from 'react-bootstrap';
+import { Form,Image } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 class Login extends React.Component
 {
@@ -70,7 +70,8 @@ class Login extends React.Component
                                     />
                                 </div>
                                 <div className="container form-group">
-                                    <Form.Control type="submit" value="Login" className="form-control btn btn-primary"/>
+                                    <Form.Control type="submit" value="Login" className="form-control btn btn-primary"/><br/><br/>
+                                    <p>Don't have an account? <Link to='/users/register' className='text-primary'>Register</Link></p>
                                 </div>
                             </Form>
                         </div>

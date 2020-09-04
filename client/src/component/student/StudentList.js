@@ -27,6 +27,15 @@ function StudentList(props){
         })
         
     }
+    const findSemesterById=(id)=>{
+        return props.semester.find(semester=>semester._id===id)
+    }
+    const findDepartmentById=(id)=>{
+        return props.department.find(department=>department._id===id)
+    }
+    const findCourseById=(id)=>{
+        return props.course.find(course=>course._id===id)
+    }
     console.log(props)
     return(
         <div className="fluid-container" style={{height:"100%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9 )"}}>
@@ -56,9 +65,9 @@ function StudentList(props){
                                     <tr key={i}>
                                         <td>{i+1}</td>
                                         <td> {ele.roll} </td>
-                                        <td> {ele.course.course_name} </td>
-                                        <td> {ele.department.department_name} </td>
-                                        <td> {ele.semester.semester} </td>
+                                        <td> {ele.course.course_name?ele.course.course_name:findCourseById(ele.course).course_name} </td>
+                                        <td> {ele.department.department_name?ele.department.department_name:findDepartmentById(ele.department).department_name} </td>
+                                        <td> {ele.semester.semester?ele.semester.semester:findSemesterById(ele.semester).semester} </td>
                                         <td> {ele.name} </td>
                                         <td> {ele.email} </td>
                                         <td> {ele.gender} </td>

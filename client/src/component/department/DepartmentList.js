@@ -26,6 +26,9 @@ function DepartmentList(props){
             } 
         })
     }
+    const findCourseById=(id)=>{
+        return props.course.find(course=>course._id===id)
+    }
     return(
         <div className="fluid-container" style={{height:"100%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9)"}}>
             <Container>
@@ -49,7 +52,7 @@ function DepartmentList(props){
                                 return (
                                     <tr key={i}>
                                         <td> {i+1} </td>
-                                        <td> {ele.course.course_name} </td>
+                                        <td> {ele.course.course_name?ele.course.course_name:findCourseById(ele.course).course_name} </td>
                                         <td> {ele.department_name} </td>
                                         <td> {ele.incharge_name} </td>
                                         <td> {ele.description} </td>

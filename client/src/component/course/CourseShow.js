@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
 import { findCourse } from '../../selectors/courseSelector'
 import { Container } from 'react-bootstrap'
-import axios from '../../config/axios'
 
 function CourseShow(props){
     return (

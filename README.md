@@ -21,7 +21,7 @@ Normally what happens is that on day of examination, every student has to look s
 15. redux-thunk 
 16. sweetalert 
 
-### Installation
+## Installation
 Install the dependencies and devDependencies and start the server.
 
 ```sh

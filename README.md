@@ -67,4 +67,7 @@ $ npm install
 └───config
 ```
 
+## Contributors
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/davxe"><img src="https://avatars3.githubusercontent.com/u?s=40" alt="davxe" /></a></br>
+[PRINCE KAUSHAL](https://github.com/davxe)

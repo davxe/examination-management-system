@@ -9,6 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
 import { Form,Image } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
+import {AiOutlineMail} from 'react-icons/ai'
 class Login extends React.Component
 {
     constructor(props)
@@ -41,7 +42,7 @@ class Login extends React.Component
     render()
     {
         return(
-            <div className="fluid-container" style={{height:"600px", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#add8e6,#808080,#90EE90)"}}>
+            <div className="fluid-container" style={{height:"600px", width: "100%",backgroundImage:"linear-gradient(#add8e6,#808080,#90EE90)"}}>
                 <div className="row pt-5" style={{height: "400px", width:"100%"}}>
                     <div className="col-sm-4"></div>
                     <div className="col-sm-4" style={{backgroundColor: "red",backgroundImage:`linear-gradient(#add8e6,#808080,#90EE90)`}}>

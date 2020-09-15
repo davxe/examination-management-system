@@ -6,7 +6,8 @@ import image44 from './image44.jpg'
 import image55 from './image55.jpg'
 import image66 from './image66.jpg'
 import Carousel from 'react-bootstrap/Carousel'
-import {CardDeck,Card} from 'react-bootstrap'
+import {CardDeck,Card,Col,Row} from 'react-bootstrap'
+import Footer from '../auth/Footer'
 import moment from 'moment'
 function Home(props)
 {
@@ -102,11 +103,8 @@ function Home(props)
                     </Card>
                 </CardDeck>
             </div>
-            <div className='footer d-inline-block' style={{width:'100%',height:'80px', backgroundColor:'black',color:'white', fontSize:'20px'}} >
-                <div className='copyright'>
-                    <h5 className="text-center pt-3">© 2020 - 2021, All rights reserved.</h5>
-                </div>
-
+            <div>
+                <Footer/>
             </div>
         </div>
     )

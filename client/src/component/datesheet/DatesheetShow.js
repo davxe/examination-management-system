@@ -10,16 +10,16 @@ function DatesheetShow(props){
     // const datesheet
     const handleSend=(student)=>{
         let recipent=student.mobile
-        let textmessage=`Hi ${student.roll}/${student.name} 
-        the datesheet for your exam - ${props.datesheet.exam.exam_name}
-        room no - ${props.datesheet.room.room} 
-        course - ${props.datesheet.course.course_name} department - ${props.datesheet.department.department_name}
-        semester-${props.datesheet.semester.semester} subject - ${props.datesheet.subject.subject_name}
-        date - ${moment(props.datesheet.examDate).format('L')} 
-        and time from - ${props.datesheet.startTime} to - ${props.datesheet.endTime}
-        be ready for the exam 
-        wish you all the best 
-        (if already send please ignore )`
+        let textmessage=`Hi ${student.roll}/${student.name} \n
+        the datesheet for your exam - ${props.datesheet.exam.exam_name}\n
+        room no - ${props.datesheet.room.room} \n
+        course - ${props.datesheet.course.course_name} department - ${props.datesheet.department.department_name}\n
+        semester-${props.datesheet.semester.semester} subject - ${props.datesheet.subject.subject_name}\n
+        date - ${moment(props.datesheet.examDate).format('L')} \n
+        and time from - ${props.datesheet.startTime} to - ${props.datesheet.endTime}\n
+        be ready for the exam \n
+        wish you all the best \n
+        (if already send please ignore )\n`
         console.log("to",recipent)
         console.log("message",textmessage)
         axios.post(`/datesheets/send?recipent=${recipent}&textmessage=${textmessage}`)

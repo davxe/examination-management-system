@@ -8,7 +8,7 @@ import swal from 'sweetalert'
 import { Container, Table, Button } from 'react-bootstrap' 
 
 function StudentList(props){
-    console.log(props.subject)
+    // console.log(props.subject)
 
     const handleRemove = (id) => {
         swal({
@@ -36,7 +36,7 @@ function StudentList(props){
     const findCourseById=(id)=>{
         return props.course.find(course=>course._id===id)
     }
-    console.log(props)
+    // console.log(props)
     return(
         <div className="fluid-container" style={{height:"100%", width: "100%",backgroundColor:" red",backgroundImage:"linear-gradient(#F4F8F9,#B7F4C9,#E4C4F9 )"}}>
             <Container>

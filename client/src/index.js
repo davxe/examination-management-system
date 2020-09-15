@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
-
+import axios from './config/axios'
+import {setUser} from './actions/userAction'
 import App from './App'
 import configureStore from './store/configureStore'
 import { startGetUser } from './actions/userAction'
@@ -23,16 +24,20 @@ store.subscribe(()=>{
 
 if(localStorage.getItem('authToken'))
   {
-    store.dispatch(startGetUser())
-    store.dispatch(startSetCourses())
-    store.dispatch(startSetDepartments())
-    store.dispatch(startSetSubjects())
-    store.dispatch(startSetExams())
-    store.dispatch(startSetSemesters())
-    store.dispatch(startSetTeachers())
-    store.dispatch(startSetStudents())
-    store.dispatch(startSetRooms())
-    store.dispatch(startSetDatesheets())
+    axios.get('/users/accounts',{headers: {'x-auth': localStorage.getItem('authToken')}})
+    .then(response=>{
+      const user = response.data
+      store.dispatch(setUser(user))
+      store.dispatch(startSetCourses())
+      store.dispatch(startSetDepartments())
+      store.dispatch(startSetSubjects())
+      store.dispatch(startSetExams())
+      store.dispatch(startSetSemesters())
+      store.dispatch(startSetTeachers())
+      store.dispatch(startSetStudents())
+      store.dispatch(startSetRooms())
+      store.dispatch(startSetDatesheets())
+    })
   }
 
 const jsx=(

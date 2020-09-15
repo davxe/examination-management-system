@@ -8,6 +8,7 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
 import { Form,Image } from 'react-bootstrap';
+import {Link} from 'react-router-dom'
 class Register extends React.Component
 {
     constructor(props)
@@ -51,7 +52,7 @@ class Register extends React.Component
                             <h1 className="text-center pt-1">REGISTER</h1><br/>
                             <Form onSubmit={this.handleSubmit}>
                                 <div className="container form-group">
-                                    <Form.Control type="text" name="username" placeholder="Enter Username" className="form-control" onChange={this.handleChange} value={this.state.username} />
+                                    <Form.Control type="text" name="username" placeholder="Enter Username" className="form-control bi bi-envelope-fill" onChange={this.handleChange} value={this.state.username} />
                                 </div>
                                 <div className="container form-group">
                                     <Form.Control type="text" name="email" placeholder="Enter Email" className="form-control" onChange={this.handleChange} value={this.state.email} />
@@ -74,7 +75,8 @@ class Register extends React.Component
                                     />
                                 </div>
                                 <div className="container form-group">
-                                    <Form.Control type="submit" value="Register" className="form-control btn btn-primary"/>
+                                    <Form.Control type="submit" value="Register" className="form-control btn btn-primary"/><br/><br/>
+                                    <p><b>Already Registered Login With Us? <Link to='/users/login' className='text-primary'>Login</Link></b></p>
                                 </div>
                             </Form>
                         </div>

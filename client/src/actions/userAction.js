@@ -25,7 +25,7 @@ export const startLoginUser=(loginData,redirect)=>{
                     icon: "success",
                 });
                 localStorage.setItem('authToken',response.data.token)
-                axios.get('/users/accounts',{headers:{'authorization':localStorage.getItem('authToken')}})
+                axios.get('/users/accounts',{headers:{'x-auth':localStorage.getItem('authToken')}})
                 .then((response)=>{
                     const user=response.data
                     // console.log(user)  
@@ -42,7 +42,7 @@ export const startLoginUser=(loginData,redirect)=>{
 
 export const startGetUser=()=>{
     return (dispatch)=>{
-       axios.get('/users/accounts',{headers:{'authorization':localStorage.getItem('authToken')}})
+       axios.get('/users/accounts',{headers:{'x-auth':localStorage.getItem('authToken')}})
        .then((response=>{
            const user=response.data
            dispatch(setUser(user))

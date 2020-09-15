@@ -9,7 +9,6 @@ import IconButton from "@material-ui/core/IconButton";
 import Input from "@material-ui/core/Input";
 import { Form,Image } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
-import {AiOutlineMail} from 'react-icons/ai'
 class Login extends React.Component
 {
     constructor(props)

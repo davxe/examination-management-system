@@ -1,7 +1,7 @@
 import React from 'react'
 import {Row,Col} from 'react-bootstrap'
 import {AiFillTwitterCircle,AiOutlineCopyrightCircle} from 'react-icons/ai'
-import {FaFacebookSquare,FaGithub,FaYoutube,FaLinkedin} from 'react-icons/fa'
+import {FaFacebookSquare,FaGithub,FaYoutube,FaMailBulk,FaLinkedin} from 'react-icons/fa'
 function Footer(){
     return(
         <div class="d-flex flex-column">
@@ -16,7 +16,8 @@ function Footer(){
                         <a href='https://twitter.com/@Princek52074297'><AiFillTwitterCircle className='text-info' style={{fontSize:'45px'}}/></a>&nbsp;&nbsp;
                         <a href='https://www.facebook.com/davxe'><FaFacebookSquare className='text-primary' style={{fontSize:'45px'}}/></a>&nbsp;&nbsp;
                         <a href='https://github.com/davxe'><FaGithub className='text-light' style={{fontSize:'45px'}}/></a>&nbsp;&nbsp;
-                        <a href='https://www.youtube.com/channel/UClN7421hR4zgRTOUtbJTBJg'><FaYoutube className='text-danger' style={{fontSize:'45px'}}/></a>&nbsp;&nbsp;
+                        <a href='mailto:princekaushal14918177h@gmail.com'><FaMailBulk className='text-danger' style={{fontSize:'45px',color:'#4d9fe8'}}/></a>&nbsp;&nbsp;
+                        {/* <a href='https://www.youtube.com/channel/UClN7421hR4zgRTOUtbJTBJg'><FaYoutube className='text-danger' style={{fontSize:'45px'}}/></a>&nbsp;&nbsp; */}
                         <a href='https://www.linkedin.com/in/prince-kaushal-589b48199/'><FaLinkedin style={{fontSize:'45px',color:'#4d9fe8'}}/></a>&nbsp;&nbsp;
 
                     </div>

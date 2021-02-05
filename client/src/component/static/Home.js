@@ -27,7 +27,7 @@ function Home(props)
                         </div>
                         <Carousel.Caption>
                             <h3 style={{color:'white',fontSize:'24px'}}><b>First slide label</b></h3>
-                            <p style={{color:'white',fontSize:'24px'}}><b>"Stop being afraid of what could go wrong and think of what could go right."</b></p>
+                            <p style={{color:'black',fontSize:'24px'}}><b>"Stop being afraid of what could go wrong and think of what could go right."</b></p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
